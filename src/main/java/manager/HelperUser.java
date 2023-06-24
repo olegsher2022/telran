@@ -11,7 +11,7 @@ public class HelperUser extends HelperBase{
         super(driver);
     }
 
-    /* ////////////// sign Up
+     ////////////// sign Up
     public void clickOnContinueWithEmail() {
         click(By.cssSelector("button[class='q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--rounded bg-white text-white q-btn--actionable q-focusable q-hoverable full-width row text-black'] span[class='col']"));
 
@@ -65,7 +65,7 @@ public class HelperUser extends HelperBase{
 
     public void submitSignUpForm() {
         click(By.xpath("//button[@class='app-btn primary medium text-black']//div[1]"));
-    }*/
+    }
 
 
     /////////////// sign In

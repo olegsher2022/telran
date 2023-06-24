@@ -11,14 +11,12 @@ import lombok.ToString;
 @ToString
 
 public class User {
-  //  private String userName;
+  private String userName;
   String email;
   String password;
-  // private String city;
-  //  private String country;
+  private String city;
+   private String country;
 
-
-/*
     public User(){}
 
     public User(String email, String password) {
@@ -65,7 +63,7 @@ public class User {
 
     public String getPassword() {
         return password;
-    }*/
+    }
 
 
 }
