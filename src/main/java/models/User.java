@@ -12,9 +12,9 @@ import lombok.ToString;
 
 public class User {
   //  private String userName;
-    String email;
-    String password;
-   // private String city;
+  String email;
+  String password;
+  // private String city;
   //  private String country;
 
 

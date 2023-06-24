@@ -13,13 +13,13 @@ public class ProviderData {
     public Iterator<Object[]> loginModelDto() {
         List<Object[]> list = new ArrayList<>();
         list.add(new Object[]{
-                User.builder().email("abc@def.com").password("Test123456&").build()
+                User.builder().email("petrkislansky@gmail.com").password("Test123456&").build()
         });
         list.add(new Object[]{
-                User.builder().email("abc@def.com").password("Test123456&").build()
+                User.builder().email("petrkislansky@gmail.com").password("Test123456&").build()
         });
         list.add(new Object[]{
-                User.builder().email("abc@def.com").password("Test123456&").build()
+                User.builder().email("petrkislansky@gmail.com").password("Test123456&").build()
         });
         return list.iterator();
     }
