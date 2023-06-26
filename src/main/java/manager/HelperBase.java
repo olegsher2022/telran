@@ -2,9 +2,6 @@ package manager;
 
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -42,12 +39,16 @@ public class HelperBase {
 
     public void takeScreenShot(String link) {
         File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        File screenshot = new File(link);
+        File screenshot = new File(link);//src/test/resources/screenshots
         try {
             Files.copy(tmp, screenshot);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+    public void returnToHome(){
+        driver.navigate().to("https://la-vocal.melodic-mind.com/");
+    }
+
 }
 

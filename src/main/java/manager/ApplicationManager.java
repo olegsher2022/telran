@@ -1,13 +1,12 @@
 package manager;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileReader;
@@ -27,19 +26,18 @@ public class ApplicationManager {
     String browser;
 
     public ApplicationManager(String browser) {
-        this.browser = browser;
         properties = new Properties();
+        this.browser = browser;
     }
 
     public void init() throws IOException {
 
-        String configuration = System.getProperty("configuration", "config");
-        logger.info("Config file is: " + configuration);
-        String fileName = format("src/test/resources/congigLaVocal.properties");
-        properties.load(new FileReader(new File("src/test/resources/congigLaVocal.properties")));
+        String target = System.getProperty("configuration", "config");
+        logger.info("Config file is: " + target);
+        String fileName = format("src/test/resources/config.properties");
         // properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", configuration))));
-        logger.info("Config file fullname is :"+ fileName);
-        properties.load((new FileReader(new File(fileName))));
+        logger.info("Config file fullName is :"+ fileName);
+       // properties.load((new FileReader(new File(fileName))));
 
         if(browser.equals(BrowserType.CHROME)){
             driver = new EventFiringWebDriver(new ChromeDriver());
@@ -60,10 +58,11 @@ public class ApplicationManager {
     }
 
     public HelperUser getUser() {
+
         return user;
     }
 
-    public String getEmail(){
+   public String getEmail(){
         return properties.getProperty("web.email");
     }
     public String getPassword(){

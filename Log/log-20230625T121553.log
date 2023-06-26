@@ -1,0 +1,19 @@
+12:15:53.335 INFO  manager.ApplicationManager Config file is: config
+12:15:53.338 INFO  manager.ApplicationManager Config file fullName is :src/test/resources/configLaVocal.properties
+12:15:55.452 INFO  manager.ApplicationManager Testing on Chrome Driver
+12:16:02.806 INFO  sd_tests.TestBase    ### Start test signInSuccess
+12:16:02.808 INFO  manager.MyListener Start searching element by By.xpath: //span[contains(text(),'Continue with Email')]
+12:16:02.840 INFO  manager.MyListener The element with locator by By.xpath: //span[contains(text(),'Continue with Email')] is found successfully
+12:16:02.950 INFO  manager.MyListener Start searching element by By.xpath: //div[@role='listitem']//div[@class='q-focus-helper']
+12:16:13.030 INFO  manager.MyListener The element with locator by By.xpath: //div[@role='listitem']//div[@class='q-focus-helper'] is found successfully
+12:16:13.032 INFO  manager.NGListener Starting of the test: signInSuccess
+12:16:13.032 INFO  manager.MyListener Start searching element by By.xpath: //input[@aria-label='Email']
+12:16:13.057 INFO  manager.MyListener The element with locator by By.xpath: //input[@aria-label='Email'] is found successfully
+12:16:13.292 INFO  manager.MyListener Start searching element by By.xpath: //input[@aria-label='Password']
+12:16:13.326 INFO  manager.MyListener The element with locator by By.xpath: //input[@aria-label='Password'] is found successfully
+12:16:13.552 INFO  manager.MyListener Start searching element by By.xpath: //button[@class='app-btn primary medium text-black']//div[1]
+12:16:13.593 INFO  manager.MyListener The element with locator by By.xpath: //button[@class='app-btn primary medium text-black']//div[1] is found successfully
+12:16:13.720 INFO  manager.MyListener Start searching element by By.xpath: //i[normalize-space()='person']
+12:16:15.451 INFO  manager.MyListener The element with locator by By.xpath: //i[normalize-space()='person'] is found successfully
+12:16:15.460 INFO  manager.NGListener Success of the test: signInSuccess
+12:16:15.463 INFO  sd_tests.TestBase    ### Finished ###
