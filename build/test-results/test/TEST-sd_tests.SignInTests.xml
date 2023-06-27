@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="sd_tests.SignInTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-25T09:16:13" hostname="LAPTOP-A4D5P3OM" time="2.425">
+  <properties/>
+  <testcase name="signInSuccess" classname="sd_tests.SignInTests" time="2.425"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

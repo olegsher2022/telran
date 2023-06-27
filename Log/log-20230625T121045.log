@@ -1,0 +1,38 @@
+12:10:45.289 INFO  manager.ApplicationManager Config file is: config
+12:10:45.292 INFO  manager.ApplicationManager Config file fullName is :src/test/resources/configLaVocal.properties
+12:10:47.392 INFO  manager.ApplicationManager Testing on Chrome Driver
+12:10:51.355 INFO  sd_tests.TestBase    ### Start test signInSuccess
+12:10:51.358 INFO  manager.MyListener Start searching element by By.xpath: //div[@role='listitem']//div[@class='q-focus-helper']
+12:11:01.446 INFO  manager.MyListener The element with locator by By.xpath: //div[@role='listitem']//div[@class='q-focus-helper'] is found successfully
+12:11:01.448 INFO  manager.NGListener Starting of the test: signInSuccess
+12:11:01.450 INFO  manager.MyListener Start searching element by By.xpath: //input[@aria-label='Email']
+12:11:11.499 INFO  manager.MyListener Something went wrong!
+12:11:11.499 INFO  manager.MyListener no such element: Unable to locate element: {"method":"xpath","selector":"//input[@aria-label='Email']"}
+  (Session info: chrome=114.0.5735.134)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-A4D5P3OM', ip: '192.168.31.238', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.134, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\Svetlana\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53049}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ad53f58148ba7542481e4c8f67b2f3a9
+*** Element info: {Using=xpath, value=//input[@aria-label='Email']}
+12:11:11.500 INFO  manager.MyListener org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@aria-label='Email']"}
+  (Session info: chrome=114.0.5735.134)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-A4D5P3OM', ip: '192.168.31.238', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.134, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\Svetlana\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53049}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ad53f58148ba7542481e4c8f67b2f3a9
+*** Element info: {Using=xpath, value=//input[@aria-label='Email']}
+12:11:12.496 INFO  manager.MyListener This link to screenshot with an error: src/test/resources/screenshots-671.png
+12:11:12.500 INFO  manager.NGListener Fail of the test: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@aria-label='Email']"}
+  (Session info: chrome=114.0.5735.134)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-A4D5P3OM', ip: '192.168.31.238', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.134, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\Svetlana\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53049}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ad53f58148ba7542481e4c8f67b2f3a9
+*** Element info: {Using=xpath, value=//input[@aria-label='Email']}
+12:11:12.501 INFO  sd_tests.TestBase    ### Finished ###
