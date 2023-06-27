@@ -12,7 +12,7 @@ public class ExercisesTests extends TestBase {
         if (app.getUser().isSignIn()) {
             app.getUser().logout();
         }
-        String email = "petrkislansky@gmail.com";
+        String email = "";
         String password = "Test123456&";
         app.getUser().fillSignInForm(email,password);
 
