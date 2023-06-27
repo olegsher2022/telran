@@ -17,7 +17,7 @@ public class SignInTests extends TestBase {
     }
     @Test
     public void signInSuccess() {
-        String email = "petrkislansky@gmail.com";
+        String email = "";
         String password = "Test123456&";
         app.getUser().fillSignInForm(email,password);
 
@@ -26,7 +26,7 @@ public class SignInTests extends TestBase {
 
   /*  @Test(dataProvider = "wrongEmailData", dataProviderClass = ProviderData.class)
     public void loginNegativeWrongEmailTest(User user){
-        //User user=User.builder().email("petrkislansky@gmail.com").password("Test123456&").build();
+        //User user=User.builder().email("").password("Test123456&").build();
         app.getUser().fillEmailIncorrect(user);
         app.getUser().pause(10);
         app.getUser().fillPasswordIncorrect(user);
