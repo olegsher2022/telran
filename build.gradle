@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
+    implementation 'org.testng:testng:7.4.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
+    implementation 'io.qameta.allure:allure-testng:2.23.0'
+    implementation  'org.seleniumhq.selenium:selenium-firefox-driver:4.10.0'
+    implementation  'org.seleniumhq.selenium:selenium-chromium-driver:4.10.0'
+    implementation  'org.seleniumhq.selenium:selenium-chrome-driver:4.10.0'
+}
+
+test {
+    useTestNG()
+}

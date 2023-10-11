@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Allure Sample Suite">
+    <test name="Allure Sample Test">
+        <classes>
+            <class name="your.package.name.SampleTest" />
+        </classes>
+    </test>
+</suite>
