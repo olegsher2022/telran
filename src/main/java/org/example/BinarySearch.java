@@ -7,6 +7,7 @@ public class BinarySearch {
 	// Returns index of x if it is present in arr[].
 	public int binarySearch(int[] arr, int x)
 	{
+		
 		int l = 0, r = arr.length - 1;
 		while (l <= r) {
 			int m = l + (r - l) / 2;
