@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.example.BinarySearch;
 
 
+
 public class TestBinarySearch {
     @DataProvider(name="testData")
     public Object[][] FuncData(){
@@ -21,12 +22,14 @@ public class TestBinarySearch {
     @DataProvider(name="testDataTime")
     public Object[][] TimeData(){
         return new Object[][] {
-                {10,10,10},
+                {10,10,10000},
                 {20,20,30},
                 {20000,20000,20000},
                 {200000,200000,200000},
                 {1000000,1000000,1000000},
                 {10000000,1000,1000},
+                {100000000,1000,1000},
+                {1000000000,1000,1000},
         };
     }
 
