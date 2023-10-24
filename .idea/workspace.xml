@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ece7d0c-0b42-40a2-b284-9b35eba87d3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BubbleSortAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestBubbleSortAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BinarySearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestBinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestBinarySearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +75,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "binarysearch",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/olegsher/workspace/nginx/html/index.html",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
