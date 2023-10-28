@@ -2,7 +2,8 @@ package org.example;
 // Java implementation of iterative Binary Search
 
 
-public class BinarySearch {
+public class
+BinarySearch {
 
 	// Returns index of x if it is present in arr[].
 	public int binarySearch(int[] arr, int x)
