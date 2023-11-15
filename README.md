@@ -193,6 +193,8 @@ build->reports->tests->reg->index.html
 * Example
 
 BinarySearch Algorithm
+
+![BinarySearch Algorithm](src%2F1_0OJ3eF9eO3FlPl5A_RtCSw.png)
 ```java
 public class BinarySearch {
     public int binarySearch(int[] arr, int x)
