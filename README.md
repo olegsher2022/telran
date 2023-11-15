@@ -1,8 +1,10 @@
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
-- TestNG Home site [TestNG Home site](https://testng.org/doc/)
-- Selenium and TestNG [Selenium and TestNG](https://testng.org/doc/selenium.html)
-- TestNG Documentation [TestNG Documentation](https://testng.org/doc/documentation-main.html)
-- Course TestNG - RUS [Course](https://www.youtube.com/watch?v=xx0CYt03_bc&list=PLABk5HoxRaQIk89RgVhlaP3v7r21jJ4Qg)
+- [TestNG Home site](https://testng.org/doc/)
+- [Selenium and TestNG](https://testng.org/doc/selenium.html)
+- [TestNG Documentation](https://testng.org/doc/documentation-main.html)
+- [Course TestNG by QA Automation и SDET](https://www.youtube.com/watch?v=xx0CYt03_bc&list=PLABk5HoxRaQIk89RgVhlaP3v7r21jJ4Qg)
+- [Slack Channel Lesson 11](https://app.slack.com/client/T05E2JDKN5D/C065HDQ69ST)
+
 
 * Basics of TestNG
 * - Data Driven
@@ -188,3 +190,51 @@ task reg(type: Test){
 * Графический результат можно найти в папке <br>
 build->reports->tests->reg->index.html
 
+* Example
+
+BinarySearch Algorithm
+```java
+public class BinarySearch {
+    public int binarySearch(int[] arr, int x)
+	{
+		int l = 0, r = arr.length - 1;
+		while (l <= r) {
+			int m = l + (r - l) / 2;
+
+			// Check if x is present at mid
+			if (arr[m] == x)
+				return m;
+
+			// If x greater, ignore left half
+			if (arr[m] < x)
+				l = m + 1;
+
+			// If x is smaller, ignore right half
+			else
+				r = m - 1;
+		}
+
+		// If we reach here, then element was
+		// not present
+		return -1;
+	}
+```
+
+Test:
+```java
+@Test(groups = {"perftest", "checkintest"}, dataProvider = "testDataTime", priority = 1, threadPoolSize = 3, invocationCount = 10,  timeOut = 10000)
+public void testArr1000Perf(int arr_size, int x, int expected_time, Method method) {
+    BinarySearch bs = new BinarySearch();
+    int[] arr = new int[arr_size + 1];
+    for (int z = 0; z <= arr_size; z++) {
+        arr[z] = z;
+    }
+    long start = System.nanoTime();
+    bs.binarySearch(arr, 5);
+    long end = System.nanoTime();
+    long diff = end - start;
+    System.out.println(start + " " + end + " " + diff);
+    Assert.assertTrue(diff < expected_time, "diff lower than expected");
+    }
+}
+```
