@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 
 
-public class Lesson_11_Test {
+public class Lesson11Test {
 
     @DataProvider(name="testData")
     public Object[][] FuncData(){

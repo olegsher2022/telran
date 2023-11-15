@@ -3,7 +3,7 @@
 
   <test name="Lesson 11 Binary Search Test Case">
     <packages>
-      <package name="Lesson_11_Test" />
+      <package name="Lesson11Test" />
     </packages>
   </test>
 </suite>
