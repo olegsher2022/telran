@@ -1,9 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="BinarySearchTestSuite">
-  <test name="BinarySearchTestCase">
-    <classes>
-      <class name="org.example.BinarySearch" />
-    </classes>
+<suite name="BinarySearchTestSuite" verbose="1">
+
+  <test name="Lesson 11 Binary Search Test Case">
+    <packages>
+      <package name="Lesson_11_Test" />
+    </packages>
   </test>
 </suite>
 
