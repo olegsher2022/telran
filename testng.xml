@@ -1,6 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="BinarySearchTestSuite" verbose="1">
-
   <test name="Lesson 11 Binary Search Test Case">
     <packages>
       <package name="Lesson11Test" />

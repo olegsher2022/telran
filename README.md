@@ -17,7 +17,11 @@
 
 ____
 * TestNG Annotations
-![TestNG-Annotations.png](src%2FTestNG-Annotations.png)
+<br>Аннотация — это метка, которая предоставляет дополнительную информацию о классе
+или методе Для аннотаций используется префикс «@». TestNG использует аннотации,
+чтобы помочь в создании надeжной структуры тестов.<br>
+
+![hierarchy-of-testng-annotations.jpg](src%2Fhierarchy-of-testng-annotations.jpg)
 * __<span style="color:red">@BeforeSuite</span>__: аннотированный метод будет запущен до того, как будут
 запущены все тесты в этом наборе.
 * __<span style="color:red">@AfterSuite</span>__: аннотированный метод будет запущен после выполнения всех
@@ -111,5 +115,76 @@ invocationCount. Значение этого атрибута вместе с in
 выброс другого исключения, не указанного в атрибуте, провалит тест.
 <br>Например: <br>_@Test(expectedExceptions = {ArithmeticException.class })_. <hr>
 
-#### @Test
-* - 
+
+* DataProviders
+```java
+    import org.testng.annotations.DataProvider;
+    import org.testng.annotations.Test;
+```
+```java
+    @DataProvider(name = "testData")
+    public Object[][] testData() {
+        return new Object[][] {
+            {"username1", "password1"},
+            {"username2", "password2"},
+            {"username3", "password3"}
+        };
+    }
+```
+```java
+    @Test(dataProvider = "testData")
+    public void loginTest(String username, String password) {
+        System.out.println("Logging in with username: " + username + ", password: " + password);
+        // Your test logic goes here
+    }
+```
+
+* Some commonly used assertion methods in TestNG
+* - Assert.assertTrue
+```java
+    int result = 2 + 2;
+    Assert.assertTrue(result == 4, "Expected result to be 4, but found " + result);
+```
+
+* - assertFalse
+```java
+    int result = 2 + 2;
+    Assert.assertFalse(condition, message);
+```
+
+* - assertEquals
+```java
+    int result = 2 + 2;
+    Assert.assertEquals(result, 4, "Expected result to be 4, but found " + result);
+```
+
+
+
+
+Запись в build.gradle для запуска из разных Xml
+```
+task reg(type: Test){
+    useTestNG {
+    def suite = System.getProperty('suite', '')
+        if (suite.equals('quick')) {
+            suites 'src/test/resources/quick.xml'
+        } else if (suite.equals('smoke')) {
+            suites 'src/test/resources/smoke.xml'
+        } else {
+            suites 'src/test/resources/testng.xml'
+        }
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
+        }
+    }
+}
+```
+
+* Parallel tests
+```java
+    @Test(threadPoolSize = 3, invocationCount = 10,  timeOut = 10000)
+```
+
+* Графический результат можно найти в папке <br>
+build->reports->tests->reg->index.html
+
