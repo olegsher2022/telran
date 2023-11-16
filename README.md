@@ -1,5 +1,5 @@
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
-- [TestNG Home site](https://testng.org/doc/)
+- [TestNG Home site](h ttps://testng.org/doc/)
 - [Selenium and TestNG](https://testng.org/doc/selenium.html)
 - [TestNG Documentation](https://testng.org/doc/documentation-main.html)
 - Additional info: [Course TestNG by QA Automation и SDET](https://www.youtube.com/watch?v=xx0CYt03_bc&list=PLABk5HoxRaQIk89RgVhlaP3v7r21jJ4Qg)
@@ -259,4 +259,6 @@ public void testArr1000Func(int arr_size, int x, int expected_element) {
 ```
 
 * HomeWork:
-* 
+* - refactor code [SeleniumXpathIcarro.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumXpathIcarro.java) and [SeleniumCssIcarro.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumCssIcarro.java) using @Test and Asserts 
+* - Write code [SeleniumXpathPhoneBook.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumXpathPhoneBook.java)
+- commit and Pull Request for review

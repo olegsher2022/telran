@@ -1,3 +1,5 @@
+package lesson_11;
+
 import lesson_11.BinarySearch;
 import org.testng.annotations.*;
 import org.testng.Assert;

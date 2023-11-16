@@ -2,7 +2,7 @@
 <suite name="BinarySearchTestSuite" verbose="1">
   <test name="Lesson 11 Binary Search Test Case">
     <packages>
-      <package name="Lesson11Test" />
+      <package name="lesson_11.Lesson11Test" />
     </packages>
   </test>
 </suite>
