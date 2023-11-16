@@ -48,13 +48,13 @@ public class Lesson11Test {
 
     @AfterMethod
     public void afterMethod(Method method) {
-        System.out.printf("\t\t\tAfterMethod %s %s\n", getClass().getSimpleName(), method.getName());
+        System.out.printf("\t\tAfterMethod %s %s\n", getClass().getSimpleName(), method.getName());
     }
 
     @DataProvider(name = "testData")
     public Object[][] FuncData() {
         return new Object[][]{
-                {10, 10, 10},
+                {10, 10, 50},
                 {20, 20, 30},
                 {20000, 20000, 20000},
                 {200000, 200000, 200000},
@@ -78,18 +78,18 @@ public class Lesson11Test {
     }
 
 
-    @Test(groups = {"perftest", "first-group"}, dataProvider = "testDataTime", priority = 1, threadPoolSize = 1, invocationCount = 2, timeOut = 10000)
-    public void testArr1000Perf(int arr_size, int x, int expected_time, Method method) {
+    @Test(groups = {"perftest", "first-group"}, dataProvider = "testDataTime", priority = 1, threadPoolSize = 2, invocationCount = 5, timeOut = 10000)
+    public void testArr1000Perf(int arr_size, int x, int expected_time) {
         BinarySearch bs = new BinarySearch();
         int[] arr = new int[arr_size + 1];
         for (int z = 0; z <= arr_size; z++) {
             arr[z] = z;
         }
         long start = System.nanoTime();
-        bs.binarySearch(arr, 5);
+        bs.binarySearch(arr, x);
         long end = System.nanoTime();
         long diff = end - start;
-        System.out.println("\t\t\t\tResult: " + start + " " + end + " " + diff);
+        System.out.println("\t\t\tResult: " + start + " " + end + " " + diff);
         Assert.assertTrue(diff < expected_time, "diff lower than expected");
     }
 
