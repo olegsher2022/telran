@@ -2,6 +2,7 @@
 
 
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
+- [Record]("https://tel-ran.zoom.us/rec/share/H1elh1pE055rvkkV-mfX5QVRaapG2Zy7oMt2GEd_I9i8ELwAWDCFkvDKmwpjYWEJ.v7xCHjHqN2thQBen?startTime=1700150418000 Passcode: 4BO7%.i%")
 - [TestNG Home site](https://testng.org/doc/)
 - [Selenium and TestNG](https://testng.org/doc/selenium.html)
 - [TestNG Documentation](https://testng.org/doc/documentation-main.html)
