@@ -2,7 +2,7 @@
 
 
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
-- [TestNG Home site](h ttps://testng.org/doc/)
+- [TestNG Home site](https://testng.org/doc/)
 - [Selenium and TestNG](https://testng.org/doc/selenium.html)
 - [TestNG Documentation](https://testng.org/doc/documentation-main.html)
 - Additional info: [Course TestNG by QA Automation и SDET](https://www.youtube.com/watch?v=xx0CYt03_bc&list=PLABk5HoxRaQIk89RgVhlaP3v7r21jJ4Qg)
