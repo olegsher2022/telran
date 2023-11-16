@@ -2,10 +2,11 @@
 - [TestNG Home site](https://testng.org/doc/)
 - [Selenium and TestNG](https://testng.org/doc/selenium.html)
 - [TestNG Documentation](https://testng.org/doc/documentation-main.html)
-- [Course TestNG by QA Automation и SDET](https://www.youtube.com/watch?v=xx0CYt03_bc&list=PLABk5HoxRaQIk89RgVhlaP3v7r21jJ4Qg)
-- [Slack Channel Lesson 11](https://app.slack.com/client/T05E2JDKN5D/C065HDQ69ST)
+- Additional info: [Course TestNG by QA Automation и SDET](https://www.youtube.com/watch?v=xx0CYt03_bc&list=PLABk5HoxRaQIk89RgVhlaP3v7r21jJ4Qg)
+- Discussions: [Slack Channel Lesson 11](https://app.slack.com/client/T05E2JDKN5D/C065HDQ69ST)
 
 * Our Applications [ilCarro](https://ilcarro.web.app/) [PhoneBook](https://telranedu.web.app/home)
+* Helpers [ChatGPT](https://chat.openai.com/) | [Bard](https://bard.google.com/chat) | [stackoverflow.com](https://stackoverflow.com/)
 
 
 * Basics of TestNG
@@ -256,3 +257,6 @@ public void testArr1000Func(int arr_size, int x, int expected_element) {
     Assert.assertEquals(result, expected_element);
 }
 ```
+
+* HomeWork:
+* 
