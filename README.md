@@ -242,3 +242,17 @@ public void testArr1000Perf(int arr_size, int x, int expected_time, Method metho
     }
 }
 ```
+
+```java
+
+@Test(groups = {"functest", "second-group"},dataProvider = "testData", description = "Functionality test")
+public void testArr1000Func(int arr_size, int x, int expected_element) {
+    int[] arr = new int[arr_size + 1];
+    for (int z = 0; z <= arr_size; z++) {
+        arr[z] = z;
+    }
+    BinarySearch ob = new BinarySearch();
+    int result = ob.binarySearch(arr, x);
+    Assert.assertEquals(result, expected_element);
+}
+```
