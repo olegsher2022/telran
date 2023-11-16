@@ -44,3 +44,4 @@ bin/
 
 allure-results
 
+/gradle/
