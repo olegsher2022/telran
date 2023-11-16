@@ -265,4 +265,4 @@ public void testArr1000Func(int arr_size, int x, int expected_element) {
 * - Refactor code [SeleniumXpathIcarro.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumXpathIcarro.java) and [SeleniumCssIcarro.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumCssIcarro.java) using @Test and Asserts 
 * - Write code [SeleniumXpathPhoneBook.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumXpathPhoneBook.java)
 * - Fix errors in [LoginTests.java](src%2Ftest%2Fjava%2Flesson_11%2FLoginTests.java)
-- commit and Pull Request for review
+- commit and Pull Request for review (All questions and discussions here, try team work for solving issues: [Slack Channel Lesson 11](https://app.slack.com/client/T05E2JDKN5D/C065HDQ69ST))
