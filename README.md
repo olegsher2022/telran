@@ -5,6 +5,8 @@
 - [Course TestNG by QA Automation и SDET](https://www.youtube.com/watch?v=xx0CYt03_bc&list=PLABk5HoxRaQIk89RgVhlaP3v7r21jJ4Qg)
 - [Slack Channel Lesson 11](https://app.slack.com/client/T05E2JDKN5D/C065HDQ69ST)
 
+* Our Applications [ilCarro](https://ilcarro.web.app/) [PhoneBook](https://telranedu.web.app/home)
+
 
 * Basics of TestNG
 * - Data Driven
