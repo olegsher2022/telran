@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -12,17 +15,45 @@ public class SeleniumCssIcarro {
 
     WebDriver driver;
 
-    @Test
-    public void test1() {
+    @BeforeClass
+    public void precondition(){
         driver = new ChromeDriver();
         driver.navigate().to("https://ilcarro.web.app/search");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    }
 
+    @AfterClass
+    public void teardown(){
+        driver.close();
+        driver.quit();
+    }
+
+
+    @Test(priority = 1)
+    public void cssSelectorH2(){
         WebElement h2TextElement = driver.findElement(By.cssSelector("h2")); // h2 - it is tag name
-        System.out.println(h2TextElement.getText());
-
+//        System.out.println(h2TextElement.getText());
+        Assert.assertEquals(h2TextElement.getText(), "Type your data and hit Yalla!");
+    }
+    @Test(priority = 2)
+    public void tagNameH2(){
         WebElement h2ByTagName = driver.findElement(By.tagName("h2"));
+        Assert.assertEquals(h2ByTagName.getText(), "Type your data and hit Yalla!");
+    }
+    @Test
+    public void cssSelectorSubtitle() {
+        WebElement subtitleTextElementBycssSelector = driver.findElement(By.cssSelector(".subtitle"));//by class value
+        Assert.assertEquals(subtitleTextElementBycssSelector.getText(), "Type your data and hit Yalla!");
+    }
+    @Test
+    public void cssClassNameSubtitle() {
+        WebElement h2TextElementByClassName = driver.findElement(By.className("subtitle"));//by class value
+        Assert.assertEquals(h2TextElementByClassName.getText(), "Type your data and hit Yalla!");
+    }
+
+    @Test
+    public void test1() {
 
         //       By.cssSelector("h2.subtitle")
 
@@ -65,6 +96,6 @@ public class SeleniumCssIcarro {
 
         // Фильтр по месту среди соседей 13 page
 
-        driver.quit();
+//        driver.quit();
     }
 }
