@@ -1,3 +1,6 @@
+![programming.png](src%2Fprogramming.png)
+
+
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
 - [TestNG Home site](h ttps://testng.org/doc/)
 - [Selenium and TestNG](https://testng.org/doc/selenium.html)
