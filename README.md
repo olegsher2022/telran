@@ -259,6 +259,7 @@ public void testArr1000Func(int arr_size, int x, int expected_element) {
 ```
 
 * HomeWork:
-* - refactor code [SeleniumXpathIcarro.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumXpathIcarro.java) and [SeleniumCssIcarro.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumCssIcarro.java) using @Test and Asserts 
+* - Refactor code [SeleniumXpathIcarro.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumXpathIcarro.java) and [SeleniumCssIcarro.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumCssIcarro.java) using @Test and Asserts 
 * - Write code [SeleniumXpathPhoneBook.java](src%2Ftest%2Fjava%2Flesson_11%2FSeleniumXpathPhoneBook.java)
+* - Fix errors in [LoginTests.java](src%2Ftest%2Fjava%2Flesson_11%2FLoginTests.java)
 - commit and Pull Request for review
