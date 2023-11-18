@@ -1,6 +1,15 @@
 ![programming.png](src%2Fprogramming.png)
 
 
+
+### [Lesson 12: Test ](src/main/java/lesson_12)
+
+- Discussions: [Slack Channel Lesson 12](https://app.slack.com/client/T05E2JDKN5D/C06620CFWDB)
+
+* Our Applications [ilCarro](https://ilcarro.web.app/) [PhoneBook](https://telranedu.web.app/home)
+* Helpers [ChatGPT](https://chat.openai.com/) | [Bard](https://bard.google.com/chat) | [stackoverflow.com](https://stackoverflow.com/)
+
+
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
 
 - [Record](https://tel-ran.zoom.us/rec/share/H1elh1pE055rvkkV-mfX5QVRaapG2Zy7oMt2GEd_I9i8ELwAWDCFkvDKmwpjYWEJ.v7xCHjHqN2thQBen?startTime=1700150418000)
