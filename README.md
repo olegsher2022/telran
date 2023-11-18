@@ -2,13 +2,17 @@
 
 
 
-### [Lesson 12: Test ](src/main/java/lesson_12)
+### [Lesson 12: Test Architecture](src/main/java/lesson_12)
 
 - Discussions: [Slack Channel Lesson 12](https://app.slack.com/client/T05E2JDKN5D/C06620CFWDB)
 
 * Our Applications [ilCarro](https://ilcarro.web.app/) [PhoneBook](https://telranedu.web.app/home)
 * Helpers [ChatGPT](https://chat.openai.com/) | [Bard](https://bard.google.com/chat) | [stackoverflow.com](https://stackoverflow.com/)
 
+![H5_B2MXs.png](src%2FH5_B2MXs.png)
+![H5_B2MXs (1).png](src%2FH5_B2MXs%20%281%29.png)
+![H5_B2MXs (2).png](src%2FH5_B2MXs%20%282%29.png)
+![H5_B2MXs (3).png](src%2FH5_B2MXs%20%283%29.png)
 
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
 
