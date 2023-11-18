@@ -9,10 +9,26 @@
 * Our Applications [ilCarro](https://ilcarro.web.app/) [PhoneBook](https://telranedu.web.app/home)
 * Helpers [ChatGPT](https://chat.openai.com/) | [Bard](https://bard.google.com/chat) | [stackoverflow.com](https://stackoverflow.com/)
 
+* Check Home Work
+
+* Create test classes
 ![H5_B2MXs.png](src%2FH5_B2MXs.png)
+
+Driver per browser/database/server etc... added to @BeforeSuite
 ![H5_B2MXs (1).png](src%2FH5_B2MXs%20%281%29.png)
 ![H5_B2MXs (2).png](src%2FH5_B2MXs%20%282%29.png)
 ![H5_B2MXs (3).png](src%2FH5_B2MXs%20%283%29.png)
+
+
+
+* HomeWork for lesson 12:
+* - TODO in the project PhoneBook:
+* - - Move folder starttests from the folder test (resolve all conflicts)
+* - - Create folder manager and there: class ApplicationManager, BaseHelper, UserHelper and fill the, like on the lesson
+* - - Create folder tests and add there LoginTests and BaseTests and connect them with the applicationManager and Helpers, like on the lesson
+* - - Create folder DTO and add there to types for objects – object and object with, like on the lesson, and create for both objects tests positiveLogin
+* - - Run tests login (one run for test with userDto and one for test with userDTOWith)
+
 
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
 
