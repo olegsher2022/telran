@@ -20,6 +20,51 @@ Driver per browser/database/server etc... added to @BeforeSuite
 ![H5_B2MXs (3).png](src%2FH5_B2MXs%20%283%29.png)
 
 
+* add package manager to src/test/java 
+* - add class ApplicationManager.java
+- add class BaseHelper.java
+* add package tests to src/test/java
+* add package dto to src/test/java
+
+in ApplicationManager.java define global init and teardown functiona:
+```java
+    public void init() {
+        driver = new ChromeDriver();
+        driver.navigate().to("https://ilcarro.web.app/search");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+    }
+
+    public void tearDown() {driver.quit();
+    }
+```
+
+in BaseTest.java define object from ApplicationManager class and add @BeforeSuite and @AfterSuite:
+```java
+    static ApplicationManager app = new ApplicationManager();
+
+    @BeforeSuite
+    public void setup(){
+        app.init();
+    }
+    @AfterSuite
+    public void stop(){
+        app.tearDown();
+    }
+```
+
+in BaseHelper redefine:
+```java
+    private WebElement findElementBase(By locator){
+        return driver.findElement(locator);
+    }
+    
+    private List<WebElement> findElementsBase(By locator){
+        return driver.findElements(locator);
+    }
+```
+
+
 
 * HomeWork for lesson 12:
 * - TODO in the project PhoneBook:

@@ -1,8 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Tests">
-    <test name="Testname">
+<suite name="ilCarro">
+<!--    <test name="Testname">-->
+<!--        <classes>-->
+<!--            <class name="lesson_11.Lesson11Test"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="LoginTests">
         <classes>
-            <class name="lesson_11.Lesson11Test"/>
+            <class name="tests.LoginTests"/>
         </classes>
     </test>
 </suite>
