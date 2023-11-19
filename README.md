@@ -9,12 +9,16 @@
 * Our Applications [ilCarro](https://ilcarro.web.app/) [PhoneBook](https://telranedu.web.app/home)
 * Helpers [ChatGPT](https://chat.openai.com/) | [Bard](https://bard.google.com/chat) | [stackoverflow.com](https://stackoverflow.com/)
 
-* Check Home Work
+* Check HomeWork
 
-* Create test classes
+
+* Refactoring for scale...
+
+
 ![H5_B2MXs.png](src%2FH5_B2MXs.png)
 
-Driver per browser/database/server etc... added to @BeforeSuite
+Create class ApplicationManager in package "manager" and offload startUp and tearDown funtions
+<br>Driver per browser/database/server etc... added to @BeforeSuite
 ![H5_B2MXs (1).png](src%2FH5_B2MXs%20%281%29.png)
 ![H5_B2MXs (2).png](src%2FH5_B2MXs%20%282%29.png)
 ![H5_B2MXs (3).png](src%2FH5_B2MXs%20%283%29.png)

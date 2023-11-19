@@ -8,7 +8,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTests {
@@ -20,11 +23,11 @@ public class LoginTests {
         driver = new ChromeDriver();
         driver.navigate().to("https://ilcarro.web.app/search");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     }
     @Test
     public void loginPositive() {
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
 /*
 1. click login
 2. fill input email
@@ -49,6 +52,7 @@ public class LoginTests {
         WebElement btnYalla = driver.findElement(By.xpath("//button[@type='submit']"));
         btnYalla.click();
 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[@class='message']")));
         WebElement textMessagePopUpH2 = driver.findElement(By.xpath("//h2[@class='message']"));
         String textMessageH2 = textMessagePopUpH2.getText().trim().toUpperCase();
         String expectedResult = "Logged in success".toUpperCase();

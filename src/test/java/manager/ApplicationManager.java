@@ -25,7 +25,6 @@ public class ApplicationManager {
     }
 
     public void tearDown() {
-        driver.close();
         driver.quit();
     }
 

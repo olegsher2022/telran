@@ -6,7 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class RegistrationTest {
@@ -19,11 +22,12 @@ public class RegistrationTest {
         driver = new ChromeDriver();
         driver.navigate().to("https://ilcarro.web.app/search");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     }
-
+    @Test
     public void registrationPositive() {
-        String email = "ghjhjh@mm.cc";
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
+        String email = "oleg1@sher.biz";
         //randomUtils.generateEmail(7);
         System.out.println(email);
 
@@ -63,7 +67,7 @@ public class RegistrationTest {
         //-------------------------
 
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='dialog-container']//h1[@class='title']")));
         WebElement textMessagePopUpH1 = driver.findElement(By.xpath("//div[@class='dialog-container']//h1[@class='title']"));
         String textMessageH1 = textMessagePopUpH1.getText().trim().toUpperCase();
         String expectedResult = "Registered".toUpperCase();
