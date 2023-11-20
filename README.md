@@ -17,11 +17,18 @@
 
 ![H5_B2MXs.png](src%2FH5_B2MXs.png)
 
-Create class ApplicationManager in package "manager" and offload startUp and tearDown funtions
+Create class ApplicationManager in package "manager" and offload startUp and tearDown functions
 <br>Driver per browser/database/server etc... added to @BeforeSuite
 ![H5_B2MXs (1).png](src%2FH5_B2MXs%20%281%29.png)
 ![H5_B2MXs (2).png](src%2FH5_B2MXs%20%282%29.png)
 ![H5_B2MXs (3).png](src%2FH5_B2MXs%20%283%29.png)
+
+Ctrl-Alt-Shift-U - create UML diagram
+![classes.png](src%2Fclasses.png)
+![class-diagram-1.png](src%2Fclass-diagram-1.png)
+![classes-diagram-2.png](src%2Fclasses-diagram-2.png)
+![classes-diagram-3.png](src%2Fclasses-diagram-3.png)
+
 
 
 * add package manager to src/test/java 
@@ -30,7 +37,7 @@ Create class ApplicationManager in package "manager" and offload startUp and tea
 * add package tests to src/test/java
 * add package dto to src/test/java
 
-in ApplicationManager.java define global init and teardown functiona:
+in ApplicationManager.java define global init and teardown functions:
 ```java
     public void init() {
         driver = new ChromeDriver();
@@ -72,7 +79,6 @@ in BaseHelper redefine:
 
 * HomeWork for lesson 12:
 * - TODO in the project PhoneBook:
-* - - Move folder starttests from the folder test (resolve all conflicts)
 * - - Create folder manager and there: class ApplicationManager, BaseHelper, UserHelper and fill the, like on the lesson
 * - - Create folder tests and add there LoginTests and BaseTests and connect them with the applicationManager and Helpers, like on the lesson
 * - - Create folder DTO and add there to types for objects – object and object with, like on the lesson, and create for both objects tests positiveLogin
