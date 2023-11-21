@@ -1,13 +1,8 @@
 package models;
 
-public class User {
+public class UserWith {
     String email;
     String password;
-
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
 
     public String getEmail() {
         return email;
@@ -25,5 +20,13 @@ public class User {
         this.password = password;
     }
 
+    public UserWith withEmail(String email) {
+        this.email = email;
+        return this;
+    }
 
+    public UserWith withPassword(String password) {
+        this.password = password;
+        return this;
+    }
 }

@@ -1,6 +1,7 @@
 package manager;
 
 import models.User;
+import models.UserWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -8,25 +9,45 @@ public class HelperUser extends HelperBase {
     public HelperUser(WebDriver wd) {
         super(wd);
     }
-    By btnLoginNavigatorMenu = By.xpath("//a[contains(@href, '/login')]");
-    By inputEmailLoginForm = By.xpath("//input[@id='email']");
-    By inputPasswordLoginForm = By.xpath("//input[@id='password']");
-    By btnYallaLoginForm = By.xpath("//button[@type='submit']");
-    By textSuccessLoginPopUp = By.xpath("//h2[@class='message']");
+    By openLoginForm = By.xpath("//*[.='LOGIN']");
+    By fillEmailLoginForm = By.xpath("//input[1]");
+    By fillPasswordLoginForm = By.xpath("//input[2]");
+    By submitLogin = By.xpath("//button[1]");
+    By SuccessLogin = By.xpath("//*[.='Sign Out']");
 
-
+public void fillLoginForm(User user) {
+    typeTextBase(fillEmailLoginForm , user.getEmail());
+    typeTextBase(fillPasswordLoginForm, user.getPassword());
+}
+    public void fillLoginFormUserWith(UserWith user) {
+        typeTextBase(fillEmailLoginForm , user.getEmail());
+        typeTextBase(fillPasswordLoginForm, user.getPassword());
+    }
 
 
     public void login(User user) {
-        clickBase(btnLoginNavigatorMenu);
-        typeTextBase(inputEmailLoginForm, user.getEmail());
-        typeTextBase(inputPasswordLoginForm, user.getPassword());
-        clickBase(btnYallaLoginForm);
+        clickBase(openLoginForm);
+         fillLoginForm(user);
+        clickBase(submitLogin);
+    }
+    public void loginUserWith(UserWith userWith) {
+        clickBase(openLoginForm);
+        fillLoginFormUserWith(userWith);
+        clickBase(submitLogin);
     }
 
-    public boolean validatePopUpMessageSuccessAfterLogin() {
-        return isTextEqual(textSuccessLoginPopUp, "Logged in success");
+
+    public void logout() {
+        clickBase(SuccessLogin);
     }
+
+    public boolean validateSuccessLogin() {
+        return isTextEqual(SuccessLogin, "Sign Out");
+    }
+    public boolean isLogged(){
+    return isTextEqual(SuccessLogin, "Sign Out");
+    }
+
 }
 
 

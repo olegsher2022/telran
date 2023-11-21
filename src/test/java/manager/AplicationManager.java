@@ -8,13 +8,14 @@ import java.util.concurrent.TimeUnit;
 public class AplicationManager {
     WebDriver wd;
     HelperUser user;
+
     public void init() {
         wd = new ChromeDriver();
         user = new HelperUser(wd);
 
-        wd.navigate().to("https://ilcarro.web.app/search)");
+        wd.navigate().to("https://telranedu.web.app/home");
         wd.manage().window().maximize();
-        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
 

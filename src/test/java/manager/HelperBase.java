@@ -7,24 +7,24 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class HelperBase {
-    WebDriver driver;
+    WebDriver wd;
 
     public HelperBase(WebDriver driver) {
-        this.driver = driver;
+        this.wd = driver;
     }
 
     private WebElement findElementBase(By locator){
-        return driver.findElement(locator);
+        return wd.findElement(locator);
     }
 
     private List<WebElement> findElementsBase(By locator){
-        return driver.findElements(locator);
+        return wd.findElements(locator);
     }
 
 
     public void clickBase(By locator){
-        WebElement el = findElementBase(locator);
-        el.click();
+        findElementBase(locator).click();
+
     }
 
     public String getTextBase(By locator){

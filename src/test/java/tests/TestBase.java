@@ -11,6 +11,7 @@ public class TestBase {
     public void setup(){
         app.init();
     }
+
     @AfterSuite
     public void stop(){
         app.tearDown();
