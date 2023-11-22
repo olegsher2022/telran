@@ -1,6 +1,7 @@
 package tests;
 
 import dto.UserDTO;
+import dto.UserDTOLombok;
 import dto.UserDTOWith;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -22,6 +23,16 @@ public class LoginTests extends BaseTest {
         BaseTest.app.getUserHelper().login(userDTOWith);
         Assert.assertTrue(BaseTest.app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
 
+    }
+
+    @Test
+    public void positiveLogin() {
+        UserDTOLombok userDtoLombok = UserDTOLombok.builder()
+                .email("testqa20@gmail.com")
+                .password("123456Aa$")
+                .build();
+        app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+        Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
 

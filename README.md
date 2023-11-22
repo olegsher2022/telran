@@ -3,6 +3,38 @@
 
 ### [Lesson 13: Lombok, continue coding]()
 
+[Project Lombok](https://projectlombok.org/)
+
+```java
+dependencies {
+    implementation 'org.testng:testng:7.4.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.12.0'
+    implementation 'io.qameta.allure:allure-testng:2.14.0'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.3.2'
+        // added new dependencies
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+```
+
+BaseHelper
+```java
+    public void jsClickBase(String locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(locator);
+    }
+
+    public void clickByXY(By locator, int down, int right) {  // 10  12
+        Rectangle rect = findElementBase(locator).getRect();
+        int x = rect.getX() + rect.getWidth() / 8;
+        int y = rect.getY() + rect.getHeight() / 2;
+        Actions actions = new Actions(driver);
+        actions.moveByOffset(x, y).click().perform();
+    }
+```
+
 
 ### [Lesson 12: Test Architecture]()
 
