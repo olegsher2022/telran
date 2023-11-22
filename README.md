@@ -1,8 +1,10 @@
 ![programming.png](src%2Fprogramming.png)
 
 
+### [Lesson 13: Lombok, continue coding]()
 
-### [Lesson 12: Test Architecture](src/main/java/lesson_12)
+
+### [Lesson 12: Test Architecture]()
 
 - Lecture [Recording ](https://tel-ran.zoom.us/rec/play/zjkDJciY93s0M8l7ytuA6Yfq8Yv6AbmFc0h4Xgjv5-A8ig-NlqhAiI9VCtddIlI-FHmjimqqHW3Q7wRc.AFPic0G24JLcvK6P)
 - Discussions: [Slack Channel Lesson 12](https://app.slack.com/client/T05E2JDKN5D/C06620CFWDB)
