@@ -5,6 +5,7 @@
 
 [Project Lombok](https://projectlombok.org/)
 
+* add dependencies
 ```java
 dependencies {
     implementation 'org.testng:testng:7.4.0'
@@ -18,6 +19,31 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
 ```
+
+
+* Automatic constructors getters, setters etc by lombok
+```java
+package dto;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@Builder
+public class UserDTOLombok {
+
+    String name;
+    String lastName;
+    String email;
+    String password;
+
+}
+```
+
 
 BaseHelper
 ```java
@@ -34,6 +60,11 @@ BaseHelper
         actions.moveByOffset(x, y).click().perform();
     }
 ```
+* HomeWork for lesson 13:
+* - TODO in the project PhoneBook:
+* - - Run tests registration (userDTO, userDTOWith, userDTOLombok)
+* - - Research and add code to connect [ConfigReader.java](src%2Ftest%2Fjava%2Futils%2FConfigReader.java) to [UserHelper.java](src%2Ftest%2Fjava%2Fmanager%2FUserHelper.java)
+
 
 
 ### [Lesson 12: Test Architecture]()

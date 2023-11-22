@@ -19,9 +19,11 @@ public class UserHelper extends BaseHelper {
     By inputEmailReg = By.xpath("//input[@id='email']");
     By inputPasswordReg = By.xpath("//input[@id='password']");
     String btnRegNewUser = "document.querySelector('#terms-of-use').click();";
-    By checkBoxReg = By.xpath("//label[@for='name']");
+//    By checkBoxReg = By.xpath("//label[@for='name']");
+    By checkBoxReg = By.xpath("//label[@for='terms-of-use']");
     By btnUallaReg = By.xpath("//button[@type='submit']");
     By textPopUpSuccessRegH1 = By.xpath("//div[@class='dialog-container']//h1[@class='title']");
+
     public UserHelper(WebDriver driver) {
         super(driver);
     }
@@ -44,26 +46,26 @@ public class UserHelper extends BaseHelper {
         return isTextEqual(textSuccessLoginPopUp, "Logged in success");
     }
 
-        public void loginUserDtoLombok(UserDTOLombok user) {
-       clickBase(btnLoginNavigatorMenu);
-       typeTextBase(inputEmailLoginForm, user.getEmail());
-      typeTextBase(inputPasswordLoginForm, user.getPassword());
-       clickBase(btnYallaLoginForm);
-   }
+    public void loginUserDtoLombok(UserDTOLombok user) {
+        clickBase(btnLoginNavigatorMenu);
+        typeTextBase(inputEmailLoginForm, user.getEmail());
+        typeTextBase(inputPasswordLoginForm, user.getPassword());
+        clickBase(btnYallaLoginForm);
+    }
 
-   public void fillRegistrationForm(UserDTOLombok user) {
-       clickBase(btnOpenRegForm);
+    public void fillRegistrationForm(UserDTOLombok user) {
+        clickBase(btnOpenRegForm);
         typeTextBase(inputNameReg, user.getName());
-      typeTextBase(inputLastNameReg, user.getLastName());
-       typeTextBase(inputEmailReg, user.getEmail());
-       typeTextBase(inputPasswordReg, user.getPassword());
-       clickByXY(checkBoxReg, 10,12);
-       //jsClickBase(btnRegNewUser);
+        typeTextBase(inputLastNameReg, user.getLastName());
+        typeTextBase(inputEmailReg, user.getEmail());
+        typeTextBase(inputPasswordReg, user.getPassword());
+        clickByXY(checkBoxReg, 10, 12);
+        //jsClickBase(btnRegNewUser);
         clickBase(btnUallaReg);
-   }
+    }
 
-   public boolean validatePopUpMessageSuccessAfterRegistration() {
+    public boolean validatePopUpMessageSuccessAfterRegistration() {
         String expectedResult = "Registered".toUpperCase();
         return isTextEqual(textPopUpSuccessRegH1, expectedResult);
-   }
+    }
 }
