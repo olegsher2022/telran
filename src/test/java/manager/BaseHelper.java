@@ -2,21 +2,29 @@ package manager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.List;
 
 public class BaseHelper {
     WebDriver driver;
+//    WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
 
     public BaseHelper(WebDriver driver) {
         this.driver = driver;
     }
 
     private WebElement findElementBase(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElement(locator);
     }
 
     private List<WebElement> findElementsBase(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElements(locator);
     }
 
