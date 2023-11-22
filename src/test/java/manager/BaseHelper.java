@@ -69,4 +69,8 @@ public class BaseHelper {
         Actions actions = new Actions(driver);
         actions.moveByOffset(x, y).click().perform();
     }
+
+    public boolean isElementExist(By locator) {
+        return findElementsBase(locator).size() > 0;
+    }
 }

@@ -19,10 +19,14 @@ public class UserHelper extends BaseHelper {
     By inputEmailReg = By.xpath("//input[@id='email']");
     By inputPasswordReg = By.xpath("//input[@id='password']");
     String btnRegNewUser = "document.querySelector('#terms-of-use').click();";
-//    By checkBoxReg = By.xpath("//label[@for='name']");
+    //    By checkBoxReg = By.xpath("//label[@for='name']");
+    String btnOkPopUpStr = "document.querySelector(`[type='button']`).click();";
     By checkBoxReg = By.xpath("//label[@for='terms-of-use']");
     By btnUallaReg = By.xpath("//button[@type='submit']");
     By textPopUpSuccessRegH1 = By.xpath("//div[@class='dialog-container']//h1[@class='title']");
+
+    By btnLogout = By.xpath("//a[contains(@href, 'logout')]");
+    By btnOkPopUp = By.xpath("//button[@type='button']");
 
     public UserHelper(WebDriver driver) {
         super(driver);
@@ -67,5 +71,21 @@ public class UserHelper extends BaseHelper {
     public boolean validatePopUpMessageSuccessAfterRegistration() {
         String expectedResult = "Registered".toUpperCase();
         return isTextEqual(textPopUpSuccessRegH1, expectedResult);
+    }
+
+    public boolean validatePopUpMessageLoginIncorrect() {
+        return isTextEqual(textSuccessLoginPopUp, "\"Login or Password incorrect\"");
+    }
+
+    public boolean btnLogoutExist() {
+        return isElementExist(btnLogout);
+    }
+
+    public void logout() {
+        clickBase(btnLogout);
+    }
+
+    public void clickOkPopUpSuccessLogin() {
+
     }
 }
