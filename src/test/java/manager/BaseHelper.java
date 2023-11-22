@@ -10,7 +10,6 @@ import java.util.List;
 
 public class BaseHelper {
     WebDriver driver;
-//    WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
 
     public BaseHelper(WebDriver driver) {
         this.driver = driver;
