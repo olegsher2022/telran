@@ -1,8 +1,83 @@
 ![programming.png](src%2Fprogramming.png)
 
 
+### [Lesson 13: Lombok, continue coding]()
 
-### [Lesson 12: Test Architecture](src/main/java/lesson_12)
+[Project Lombok](https://projectlombok.org/)
+
+
+* add dependencies to build.gradle
+```java
+dependencies {
+    implementation 'org.testng:testng:7.4.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.12.0'
+    implementation 'io.qameta.allure:allure-testng:2.14.0'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.3.2'
+        // added new dependencies
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+```
+
+
+* Automatic constructors getters, setters etc by lombok
+```java
+package dto;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@Builder
+public class UserDTOLombok {
+
+    String name;
+    String lastName;
+    String email;
+    String password;
+
+}
+```
+
+* What is JavaScriptExecutor?
+<br>JavaScriptExecutor is an Interface that helps to execute JavaScript through Selenium Webdriver. JavaScriptExecutor provides two methods “executescript” & “executeAsyncScript” to run javascript on the selected window or current page.
+<br>[JavaScriptExecutor in Selenium with Example
+](https://www.guru99.com/execute-javascript-selenium-webdriver.html)
+
+
+* Actions
+To test an application, one needs to perform a number of user actions on it. To perform any operations on the web application such as double-click, selecting drop-down boxes, etc. the actions class is required
+<br>[How to handle Action class in Selenium](https://www.browserstack.com/guide/action-class-in-selenium)
+
+* BaseHelper
+```java
+    public void jsClickBase(String locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(locator);
+    }
+
+    public void clickByXY(By locator, int down, int right) {  // 10  12
+        Rectangle rect = findElementBase(locator).getRect();
+        int x = rect.getX() + rect.getWidth() / 8;
+        int y = rect.getY() + rect.getHeight() / 2;
+        Actions actions = new Actions(driver);
+        actions.moveByOffset(x, y).click().perform();
+    }
+```
+* HomeWork for lesson 13:
+* - TODO in the project PhoneBook:
+* - - Add & Run  registration tests (userDTO, userDTOWith, userDTOLombok)
+* - - Research and add code to connect [ConfigReader.java](src%2Ftest%2Fjava%2Futils%2FConfigReader.java) to [UserHelper.java](src%2Ftest%2Fjava%2Fmanager%2FUserHelper.java)
+
+
+
+### [Lesson 12: Test Architecture]()
 
 - Lecture [Recording ](https://tel-ran.zoom.us/rec/play/zjkDJciY93s0M8l7ytuA6Yfq8Yv6AbmFc0h4Xgjv5-A8ig-NlqhAiI9VCtddIlI-FHmjimqqHW3Q7wRc.AFPic0G24JLcvK6P)
 - Discussions: [Slack Channel Lesson 12](https://app.slack.com/client/T05E2JDKN5D/C06620CFWDB)
