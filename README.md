@@ -5,7 +5,7 @@
 
 [Project Lombok](https://projectlombok.org/)
 
-* add dependencies
+* add dependencies to build.gradle
 ```java
 dependencies {
     implementation 'org.testng:testng:7.4.0'
@@ -44,8 +44,17 @@ public class UserDTOLombok {
 }
 ```
 
+* What is JavaScriptExecutor?
+<br>JavaScriptExecutor is an Interface that helps to execute JavaScript through Selenium Webdriver. JavaScriptExecutor provides two methods “executescript” & “executeAsyncScript” to run javascript on the selected window or current page.
+<br>[JavaScriptExecutor in Selenium with Example
+](https://www.guru99.com/execute-javascript-selenium-webdriver.html)
 
-BaseHelper
+
+* Actions
+To test an application, one needs to perform a number of user actions on it. To perform any operations on the web application such as double-click, selecting drop-down boxes, etc. the actions class is required
+<br>[How to handle Action class in Selenium](https://www.browserstack.com/guide/action-class-in-selenium)
+
+* BaseHelper
 ```java
     public void jsClickBase(String locator) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
