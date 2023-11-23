@@ -71,7 +71,7 @@ To test an application, one needs to perform a number of user actions on it. To 
 ```
 * HomeWork for lesson 13:
 * - TODO in the project PhoneBook:
-* - - Run tests registration (userDTO, userDTOWith, userDTOLombok)
+* - - Add & Run  registration tests (userDTO, userDTOWith, userDTOLombok)
 * - - Research and add code to connect [ConfigReader.java](src%2Ftest%2Fjava%2Futils%2FConfigReader.java) to [UserHelper.java](src%2Ftest%2Fjava%2Fmanager%2FUserHelper.java)
 
 
