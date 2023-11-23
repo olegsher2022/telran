@@ -1,6 +1,91 @@
 ![programming.png](src%2Fprogramming.png)
 
 
+
+### [Lesson 12: Test Architecture](src/main/java/lesson_12)
+
+- Lecture [Recording ](https://tel-ran.zoom.us/rec/play/zjkDJciY93s0M8l7ytuA6Yfq8Yv6AbmFc0h4Xgjv5-A8ig-NlqhAiI9VCtddIlI-FHmjimqqHW3Q7wRc.AFPic0G24JLcvK6P)
+- Discussions: [Slack Channel Lesson 12](https://app.slack.com/client/T05E2JDKN5D/C06620CFWDB)
+
+* Our Applications [ilCarro](https://ilcarro.web.app/) [PhoneBook](https://telranedu.web.app/home)
+* Helpers [ChatGPT](https://chat.openai.com/) | [Bard](https://bard.google.com/chat) | [stackoverflow.com](https://stackoverflow.com/)
+
+* Check HomeWork
+
+
+* Refactoring for scale...
+
+
+![H5_B2MXs.png](src%2FH5_B2MXs.png)
+
+Create class ApplicationManager in package "manager" and offload startUp and tearDown functions
+<br>Driver per browser/database/server etc... added to @BeforeSuite
+![H5_B2MXs (1).png](src%2FH5_B2MXs%20%281%29.png)
+![H5_B2MXs (2).png](src%2FH5_B2MXs%20%282%29.png)
+![H5_B2MXs (3).png](src%2FH5_B2MXs%20%283%29.png)
+
+Ctrl-Alt-Shift-U - create UML diagram
+![classes.png](src%2Fclasses.png)
+![class-diagram-1.png](src%2Fclass-diagram-1.png)
+![classes-diagram-2.png](src%2Fclasses-diagram-2.png)
+![classes-diagram-3.png](src%2Fclasses-diagram-3.png)
+
+
+
+* add package manager to src/test/java 
+* - add class ApplicationManager.java
+- add class BaseHelper.java
+* add package tests to src/test/java
+* add package dto to src/test/java
+
+in ApplicationManager.java define global init and teardown functions:
+```java
+    public void init() {
+        driver = new ChromeDriver();
+        driver.navigate().to("https://ilcarro.web.app/search");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+    }
+
+    public void tearDown() {driver.quit();
+    }
+```
+
+in BaseTest.java define object from ApplicationManager class and add @BeforeSuite and @AfterSuite:
+```java
+    static ApplicationManager app = new ApplicationManager();
+
+    @BeforeSuite
+    public void setup(){
+        app.init();
+    }
+    @AfterSuite
+    public void stop(){
+        app.tearDown();
+    }
+```
+
+in BaseHelper redefine:
+```java
+    private WebElement findElementBase(By locator){
+        return driver.findElement(locator);
+    }
+    
+    private List<WebElement> findElementsBase(By locator){
+        return driver.findElements(locator);
+    }
+```
+
+
+
+* HomeWork for lesson 12:
+* - TODO in the project PhoneBook:
+* - - Create folder manager and there: class ApplicationManager, BaseHelper, UserHelper and fill the, like on the lesson
+* - - Create folder tests and add there LoginTests and BaseTests and connect them with the applicationManager and Helpers, like on the lesson
+* - - Create folder DTO and add there to types for objects – object and object with, like on the lesson, and create for both objects tests positiveLogin
+* - - Run tests login (one run for test with userDto and one for test with userDTOWith)
+
+
 ### [Lesson 11: TestNG Overview](src/main/java/lesson_11)
 
 - [Record](https://tel-ran.zoom.us/rec/share/H1elh1pE055rvkkV-mfX5QVRaapG2Zy7oMt2GEd_I9i8ELwAWDCFkvDKmwpjYWEJ.v7xCHjHqN2thQBen?startTime=1700150418000)
