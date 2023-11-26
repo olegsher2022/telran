@@ -1,23 +1,23 @@
 package tests;
 
 import dto.UserDTO;
-import dto.UserDTOLombok;
+import dto.UserDtoLombok;
 import dto.UserDTOWith;
 import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 
 public class LoginTests extends BaseTest {
 
-    @BeforeTest
+//    @BeforeTest
+    @BeforeMethod
     public void preconditionsLogin() {
         logoutIflogin();
     }
 
 
-    @AfterTest
+//    @AfterTest
+    @AfterMethod
     public void postconditionsLogin() {
         app.getUserHelper().clickOkPopUpSuccessLogin();
     }
@@ -42,7 +42,7 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void positiveLogin() {
-        UserDTOLombok userDtoLombok = UserDTOLombok.builder()
+        UserDtoLombok userDtoLombok = UserDtoLombok.builder()
                 .email("testqa20@gmail.com")
                 .password("123456Aa$")
                 .build();
@@ -50,9 +50,22 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
+   @Test
+   public void positiveLogin1() {
+       app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+        try {
+           Thread.sleep(10000);
+       } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
+   }
+
+
+
     @Test(priority = 1)
     public void negativePasswordWithoutSymbol() {
-        UserDTOLombok userDtoLombok = UserDTOLombok.builder()
+        UserDtoLombok userDtoLombok = UserDtoLombok.builder()
                 .email("testqa20@gmail.com")
                 .password("123456Aaa")
                 .build();
@@ -62,7 +75,7 @@ public class LoginTests extends BaseTest {
 
     @Test(priority = 1)
     public void negativePasswordWithoutNumbers() {
-        UserDTOLombok userDtoLombok = UserDTOLombok.builder()
+        UserDtoLombok userDtoLombok = UserDtoLombok.builder()
                 .email("testqa20@gmail.com")
                 .password("ddsdhjAa$")
                 .build();
@@ -72,7 +85,7 @@ public class LoginTests extends BaseTest {
 
     @Test(priority = 1)
     public void negativePasswordWithoutLetters() {
-        UserDTOLombok userDtoLombok = UserDTOLombok.builder()
+        UserDtoLombok userDtoLombok = UserDtoLombok.builder()
                 .email("testqa20@gmail.com")
                 .password("12345678$")
                 .build();

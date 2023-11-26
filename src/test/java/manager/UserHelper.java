@@ -1,12 +1,10 @@
 package manager;
 
-import dto.UserDTOLombok;
+import dto.UserDtoLombok;
 import dto.UserDTO;
 import dto.UserDTOWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 
 public class UserHelper extends BaseHelper {
 
@@ -54,14 +52,14 @@ public class UserHelper extends BaseHelper {
         return isTextEqual(textSuccessLoginPopUp, "Logged in success");
     }
 
-    public void loginUserDtoLombok(UserDTOLombok user) {
+    public void loginUserDtoLombok(UserDtoLombok user) {
         clickBase(btnLoginNavigatorMenu);
         typeTextBase(inputEmailLoginForm, user.getEmail());
         typeTextBase(inputPasswordLoginForm, user.getPassword());
         clickBase(btnYallaLoginForm);
     }
 
-    public void fillRegistrationForm(UserDTOLombok user) {
+    public void fillRegistrationForm(UserDtoLombok user) {
         clickBase(btnOpenRegForm);
         typeTextBase(inputNameReg, user.getName());
         typeTextBase(inputLastNameReg, user.getLastName());
@@ -90,17 +88,19 @@ public class UserHelper extends BaseHelper {
     }
 
     public void clickOkPopUpSuccessLogin() {
-        clickBase(textPopUpSuccessRegH1);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        clickBase(textPopUpSuccessRegH1);
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        Actions actions = new Actions(driver);
-        // Use the sendKeys method to simulate pressing the "Enter" key on the active element
-        actions.sendKeys(Keys.TAB).perform();
-        actions.sendKeys(Keys.ESCAPE).perform();
+        jsClickBase(btnOkPopUpStr);
+
+//        Actions actions = new Actions(driver);
+//        // Use the sendKeys method to simulate pressing the "Enter" key on the active element
+//        actions.sendKeys(Keys.TAB).perform();
+//        actions.sendKeys(Keys.ESCAPE).perform();
 
     }
 

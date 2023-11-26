@@ -1,6 +1,6 @@
 package tests;
 
-import dto.UserDTOLombok;
+import dto.UserDtoLombok;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ public class RegistrationTests extends BaseTest{
     public void positiveRegistration() {
         String email = randomUtils.generateEmail(7);
 
-        UserDTOLombok user = UserDTOLombok.builder()
+        UserDtoLombok user = UserDtoLombok.builder()
                 .email(email)
                 .password("123456Aa$")
                 .lastName("abdfg")
@@ -24,7 +24,7 @@ public class RegistrationTests extends BaseTest{
     //NEGATIVE REGISTRATION
     @Test
     public void negativeRegistrationWrongEmail() {
-        UserDTOLombok user = UserDTOLombok.builder()
+        UserDtoLombok user = UserDtoLombok.builder()
                 .email("abc@")
                 .password("123456Aa$")
                 .lastName("abdfg")
@@ -39,7 +39,7 @@ public class RegistrationTests extends BaseTest{
     public void negativeRegistrationWrongPassword() {
         String email = randomUtils.generateEmail(7);
 
-        UserDTOLombok user = UserDTOLombok.builder()
+        UserDtoLombok user = UserDtoLombok.builder()
                 .email(email)
                 .password("123456Aa")
                 .lastName("abdfg")
@@ -52,7 +52,7 @@ public class RegistrationTests extends BaseTest{
 
     @Test
     public void negativeRegistrationBlankEmail() {
-        UserDTOLombok user = UserDTOLombok.builder()
+        UserDtoLombok user = UserDtoLombok.builder()
                 .email("")
                 .password("123456Aa$")
                 .lastName("abdfg")

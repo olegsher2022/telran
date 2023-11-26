@@ -73,4 +73,6 @@ public class BaseHelper {
     public boolean isElementExist(By locator) {
         return findElementsBase(locator).size() > 0;
     }
+
+    public void refreshPage() {driver.navigate().refresh();}
 }

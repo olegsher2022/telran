@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class UserDTOLombok {
+public class UserDtoLombok {
 
     String name;
     String lastName;
