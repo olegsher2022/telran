@@ -1,5 +1,28 @@
 ![programming.png](src%2Fprogramming.png)
 
+![How-To-Set-Upstream-Branch-on-Git.png](src%2FHow-To-Set-Upstream-Branch-on-Git.png)
+add to git config file:
+```editorconfig
+[remote "upstream"]
+	url = https://github.com/olegsher2022/telran.git
+	fetch = +refs/heads/:refs/remotes/upstream/
+```
+
+basic commands:
+```bash
+git fetch --all
+```
+
+
+daily:
+```bash
+git rebase upstream main
+git pull upstream main
+git push origin main
+```
+
+
+
 
 
 ### [Lesson 13: Lombok, continue coding]()
