@@ -1,12 +1,10 @@
 package manager;
 
-import dto.UserDTOLombok;
+import dto.UserDtoLombok;
 import dto.UserDTO;
 import dto.UserDTOWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 
 public class UserHelper extends BaseHelper {
 
@@ -23,12 +21,14 @@ public class UserHelper extends BaseHelper {
     String btnRegNewUser = "document.querySelector('#terms-of-use').click();";
     //    By checkBoxReg = By.xpath("//label[@for='name']");
     String btnOkPopUpStr = "document.querySelector(`[type='button']`).click();";
+    By btnOkPopUp = By.xpath("//button[@type='button']");
+
     By checkBoxReg = By.xpath("//label[@for='terms-of-use']");
     By btnUallaReg = By.xpath("//button[@type='submit']");
     By textPopUpSuccessRegH1 = By.xpath("//div[@class='dialog-container']//h1[@class='title']");
 
     By btnLogout = By.xpath("//a[contains(@href, 'logout')]");
-    By btnOkPopUp = By.xpath("//button[@type='button']");
+
     By errorMessageWrongEmailReg = By.xpath("//input[@autocomplete='email']/..//div//div");
     By errorMessageIncorrectPasswordReg = By.xpath("//input[@autocomplete='new-password']/..//div//div");
 
@@ -54,20 +54,20 @@ public class UserHelper extends BaseHelper {
         return isTextEqual(textSuccessLoginPopUp, "Logged in success");
     }
 
-    public void loginUserDtoLombok(UserDTOLombok user) {
+    public void loginUserDtoLombok(UserDtoLombok user) {
         clickBase(btnLoginNavigatorMenu);
         typeTextBase(inputEmailLoginForm, user.getEmail());
         typeTextBase(inputPasswordLoginForm, user.getPassword());
         clickBase(btnYallaLoginForm);
     }
 
-    public void fillRegistrationForm(UserDTOLombok user) {
+    public void fillRegistrationForm(UserDtoLombok user) {
         clickBase(btnOpenRegForm);
         typeTextBase(inputNameReg, user.getName());
         typeTextBase(inputLastNameReg, user.getLastName());
         typeTextBase(inputEmailReg, user.getEmail());
         typeTextBase(inputPasswordReg, user.getPassword());
-        clickByXY(checkBoxReg, 10, 12);
+        clickByXY(checkBoxReg, 5, 15);
         //jsClickBase(btnRegNewUser);
         clickBase(btnUallaReg);
     }
@@ -81,6 +81,9 @@ public class UserHelper extends BaseHelper {
         return isTextEqual(textSuccessLoginPopUp, "\"Login or Password incorrect\"");
     }
 
+
+
+//    solution for not exist button
     public boolean btnLogoutExist() {
         return isElementExist(btnLogout);
     }
@@ -89,19 +92,14 @@ public class UserHelper extends BaseHelper {
         clickBase(btnLogout);
     }
 
+//   solution for not exist button
+
+
+
     public void clickOkPopUpSuccessLogin() {
-        clickBase(textPopUpSuccessRegH1);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        Actions actions = new Actions(driver);
-        // Use the sendKeys method to simulate pressing the "Enter" key on the active element
-        actions.sendKeys(Keys.TAB).perform();
-        actions.sendKeys(Keys.ESCAPE).perform();
-
+//        clickBase(btnOkPopUp);
+//        clickBase(textPopUpSuccessRegH1);
+        jsClickBase(btnOkPopUpStr);
     }
 
         public boolean validateMessageIncorrectEmailReg() {
