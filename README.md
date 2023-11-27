@@ -126,6 +126,21 @@ alert.accept();
 ```
 
 
+```java
+    public void logoutIflogin() {
+        if (app.getUserHelper().btnLogoutExist()) {
+            app.getUserHelper().logout();
+        }
+    }
+```
+
+```java
+    public void logout() {
+        clickBase(btnLogout);
+    }
+```
+
+
 
 
 
