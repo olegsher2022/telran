@@ -56,6 +56,7 @@ public class LoginTests extends BaseTest {
         try {
            Thread.sleep(1);
        } catch (InterruptedException e) {
+            logger.error(String.valueOf(e));
             throw new RuntimeException(e);
         }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
@@ -70,6 +71,7 @@ public class LoginTests extends BaseTest {
                 .email("testqa20@gmail.com")
                 .password("123456Aaa")
                 .build();
+        logger.info("testqa20@gmail.com");
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
@@ -80,6 +82,7 @@ public class LoginTests extends BaseTest {
                 .email("testqa20@gmail.com")
                 .password("ddsdhjAa$")
                 .build();
+        logger.warn("userDtoLombok initialization finished");
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
@@ -90,8 +93,10 @@ public class LoginTests extends BaseTest {
                 .email("testqa20@gmail.com")
                 .password("12345678$")
                 .build();
+        logger.warn("userDtoLombok initialization finished again with warn");
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
-        Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
+
+         Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
 
 
