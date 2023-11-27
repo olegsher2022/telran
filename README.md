@@ -25,6 +25,9 @@ git push origin main
 
 
 * Alerts on page
+
+![maxresdefault.jpg](src%2Fmaxresdefault.jpg)
+
 ```text
 HTML Window alert() method is used to display an alert box. 
 It displays a specified message along with an OK button and is generally used to make sure that the information comes through the user.
@@ -50,14 +53,21 @@ It returns a string that represents the text to display in the alert box.
 ```java
     Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 ```
+
+```text 
 The simplest of these is referred to as an alert, which shows a custom message, and a single button which dismisses the alert, labelled in most browsers as OK. It can also be dismissed in most browsers by pressing the close button, but this will always do the same thing as the OK button.
 WebDriver can get the text from the popup and accept or dismiss these alerts.
+```
+
 ```java
 String text = alert.getText();
 alert.accept();
 ```
 * Confirm
+```text
 A confirm box is similar to an alert, except the user can also choose to cancel the message
+```
+
 ```java
 //Wait for the alert to be displayed
 wait.until(ExpectedConditions.alertIsPresent());
@@ -74,9 +84,11 @@ alert.dismiss();
 
 
 * Prompt
-
+```text
 Prompts are similar to confirm boxes, except they also include a text input. Similar to working with form elements, you can use WebDriver’s send keys to fill in a response.
 This will completely replace the placeholder text.
+```
+
 
 ```java
 //Wait for the alert to be displayed and store it in a variable

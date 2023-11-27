@@ -79,6 +79,9 @@ public class UserHelper extends BaseHelper {
         return isTextEqual(textSuccessLoginPopUp, "\"Login or Password incorrect\"");
     }
 
+
+
+//    solution for not exist button
     public boolean btnLogoutExist() {
         return isElementExist(btnLogout);
     }
@@ -86,6 +89,10 @@ public class UserHelper extends BaseHelper {
     public void logout() {
         clickBase(btnLogout);
     }
+
+//   solution for not exist button
+
+
 
     public void clickOkPopUpSuccessLogin() {
 //        clickBase(textPopUpSuccessRegH1);

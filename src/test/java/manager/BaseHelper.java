@@ -22,11 +22,15 @@ public class BaseHelper {
     }
 
     private List<WebElement> findElementsBase(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(300));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElements(locator);
     }
 
+
+    public boolean ifElementExist(By locator){
+        return findElementsBase(locator).size() > 0;
+    }
 
     public void clickBase(By locator) {
         WebElement el = findElementBase(locator);
@@ -70,7 +74,7 @@ public class BaseHelper {
         actions.moveByOffset(x, y).click().perform();
     }
 
-    public boolean isElementExist(By locator) {
+    public boolean  isElementExist(By locator) {
         return findElementsBase(locator).size() > 0;
     }
 
