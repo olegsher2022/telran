@@ -5,7 +5,7 @@ add to git config file:
 ```editorconfig
 [remote "upstream"]
 	url = https://github.com/olegsher2022/telran.git
-	fetch = +refs/heads/:refs/remotes/upstream/
+	fetch = +refs/heads/*:refs/remotes/upstream/*
 ```
 
 basic commands:
