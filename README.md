@@ -140,6 +140,42 @@ alert.accept();
     }
 ```
 
+* Logger intro
+
+add to build.gradle
+```text
+    implementation 'ch.qos.logback:logback-classic:1.3.5'
+```
+
+add configuration file logback.xml
+```editorconfig
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+    <logger name="com.baeldung.logback.tests" level="WARN">
+        <appender-ref ref="file" />
+    </logger>
+
+  <root level="info">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>
+```
+
+add to BaseTest
+```java
+Logger logger = LoggerFactory.getLogger(BaseTest.class);
+```
+
+for example add to test:
+```java
+        logger.info("Test Finished");
+```
+
 
 
 
