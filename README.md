@@ -102,13 +102,31 @@ alert.accept();
 ```
 <hr>
 
+* issue - if user already logged in - should be logout
 
-
-
-add to BaseHelper additional method for page refresh
+- add xpath for log out button
 ```java
-    public void refreshPage() {driver.navigate().refresh();}
+ By btnLogout = By.xpath("//a[contains(@href, 'logout')]");
 ```
+
+
+- add method to BaseHelper to check if element is available
+```java
+    public boolean  isElementExist(By locator) {
+        return findElementsBase(locator).size() > 0;
+    }
+```
+
+
+- add boolean method to check if we already loggedin
+```java
+    public boolean btnLogoutExist() {
+        return isElementExist(btnLogout);
+    }
+```
+
+
+
 
 
 

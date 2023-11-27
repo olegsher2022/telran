@@ -54,11 +54,12 @@ public class LoginTests extends BaseTest {
    public void positiveLogin1() {
        app.getUserHelper().loginUserDtoLombok(userDtoLombok);
         try {
-           Thread.sleep(10000);
+           Thread.sleep(1);
        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
+        logger.info("Test Finished");
    }
 
 
