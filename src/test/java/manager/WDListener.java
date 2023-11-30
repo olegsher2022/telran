@@ -1,15 +1,17 @@
 package manager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.io.File;
 
 public class WDListener extends AbstractWebDriverEventListener {
-
     Logger logger = LoggerFactory.getLogger(WDListener.class);
 
     public WDListener() {
@@ -39,11 +41,13 @@ public class WDListener extends AbstractWebDriverEventListener {
     @Override
     public void beforeNavigateTo(String url, WebDriver driver) {
         super.beforeNavigateTo(url, driver);
+        logger.info("WDListener event beforeNavigateTo getCurrentUrl: " + url + driver.getCurrentUrl());
     }
 
     @Override
     public void afterNavigateTo(String url, WebDriver driver) {
         super.afterNavigateTo(url, driver);
+        logger.info("WDListener event afterNavigateTo getCurrentUrl: " + driver.getCurrentUrl());
     }
 
     @Override
@@ -79,6 +83,7 @@ public class WDListener extends AbstractWebDriverEventListener {
     @Override
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
         super.beforeFindBy(by, element, driver);
+        logger.info("WDListener event beforeFindBy getCurrentUrl: " + driver.getCurrentUrl());
     }
 
     @Override
@@ -129,7 +134,25 @@ public class WDListener extends AbstractWebDriverEventListener {
     @Override
     public void onException(Throwable throwable, WebDriver driver) {
         super.onException(throwable, driver);
+        logger.error("WDListener event onException: ");
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String fileName = "src/test/screenshots/screenshot-" + timestamp + ".png";
+        logger.info("Create screenshot: " + fileName);
+        takeScreenshot((TakesScreenshot) driver, fileName);
     }
+
+    private void takeScreenshot(TakesScreenshot takesScreenshot, String fileName) {
+        try {
+            File tmp = takesScreenshot.getScreenshotAs(OutputType.FILE);
+            File screenshot = new File(fileName);
+            Files.copy(tmp,screenshot);
+
+        } catch (IOException e){
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+    }
+
 
     @Override
     public <X> void beforeGetScreenshotAs(OutputType<X> target) {

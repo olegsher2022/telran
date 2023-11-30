@@ -47,3 +47,4 @@ allure-results
 /gradle/
 /logs/
 /logs/
+/src/test/screenshots/

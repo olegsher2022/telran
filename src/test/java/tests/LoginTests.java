@@ -3,11 +3,14 @@ package tests;
 import dto.UserDTO;
 import dto.UserDtoLombok;
 import dto.UserDTOWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 
 public class LoginTests extends BaseTest {
+    Logger logger = LoggerFactory.getLogger(LoginTests.class);
 
 //    @BeforeTest
     @BeforeMethod

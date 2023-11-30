@@ -1,5 +1,5 @@
 <configuration>
-  <timestamp key="bySecond" datePattern="yyyMMdd"/>
+  <timestamp key="bySecond" datePattern="yyyMMdd:HH-mm"/>
 
   <!-- Console Appender (STDOUT) for INFO level -->
   <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">

@@ -19,7 +19,7 @@ public class RegistrationTests extends BaseTest{
         }
     }
 
-    @Test
+    @Test(groups={"smoke", "regression"})
     public void positiveRegistration() {
         app.getUserHelper().refreshPage();
         String email = randomUtils.generateEmail(7);

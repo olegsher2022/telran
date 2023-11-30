@@ -1,5 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ilCarro">
+    <listeners>
+        <listener class-name="tests.RegistrationTests"></listener>
+        <listener class-name="tests.LoginTests"></listener>
+    </listeners>
     <test name="LoginTests">
         <classes>
             <class name="tests.LoginTests"/>

@@ -24,6 +24,74 @@ git push origin main
 
 ### [Lesson 15: Listeners TestNg and WDListener continue coding]()
 
+#### Типы Listener в Selenium:
+* ● WebDriver Listeners
+* ● TestNG Listeners
+
+```text
+Практическое использование Listeners в Selenium Automation Testing может
+заключаться в регистрации порядка действий и создании снимка экрана при
+возникновении исключения. Это облегчает отладку на более поздних этапах
+выполнения теста.
+```
+
+
+* Add testNG listener procedure
+
+[All about TestNG Listeners in Selenium](https://www.browserstack.com/guide/testng-listeners)
+1. create class  [TestNGListener.java](src%2Ftest%2Fjava%2Fmanager%2FTestNGListener.java) in manager
+2. add ```public class TestNGListener implements ITestListener```
+3. add ```Logger logger = LoggerFactory.getLogger(TestNGListener.class);```
+4. override all methods
+
+
+```text 
+Реализацию можно описать в три шага:
+1.Создать class MyListener extends AbstractWebDriverEventListener
+2.Создать Constructor super class
+3.Переопределить нужные методы (аннотация @Override)
+```
+[WDListener.java](src%2Ftest%2Fjava%2Fmanager%2FWDListener.java)
+2. create  ```public class WDListener extends AbstractWebDriverEventListener {```
+3. add ```Logger logger = LoggerFactory.getLogger(TestNGListener.class);```
+4. create empty constructor ```public WDListener() {super(); }```
+4. override all methods
+5. changes in [ApplicationManager.java](src%2Ftest%2Fjava%2Fmanager%2FApplicationManager.java)
+   6. ```EventFiringWebDriver driver;```
+   7. ```driver = new EventFiringWebDriver(new ChromeDriver());```
+   8. ``` driver.register(new WDListener()); ```
+
+
+
+* Screenshots
+  1. create folder screenshots in test
+  2. add code 
+     ```java 
+        @Override
+        public void onException(Throwable throwable, WebDriver driver) {
+            super.onException(throwable, driver);
+        logger.error("start on exception in wdlistener driver");
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String fileName = "src/test/screenshots/screenshot-" + timeStamp + ".png";
+        logger.info("created screenshot " + fileName);
+        takeScreenshot((TakesScreenshot) driver, fileName);
+        }
+     ```
+     
+     ```java
+
+
+      private void takeScreenshot(TakesScreenshot takesScreenshot, String fileName){
+          try{
+                  File tmp = takesScreenshot.getScreenshotAs(OutputType.FILE);
+                  File screenshot = new File(fileName);
+                  Files.copy(tmp,screenshot);
+          } catch (IOException e){
+              e.printStackTrace();
+              logger.error(e.getMessage());
+          }
+      }```
+
 
 Run tests from console(Linux)
 1. check [build.gradle](build.gradle) for 
@@ -118,23 +186,7 @@ firefox file:///home/olegsher/workspace/telran/build/reports/tests/reg/index.htm
 ```
 
 
-#### Типы Listener в Selenium:
-* ● WebDriver Listeners
-* ● TestNG Listeners
 
-```text
-Практическое использование Listeners в Selenium Automation Testing может
-заключаться в регистрации порядка действий и создании снимка экрана при
-возникновении исключения. Это облегчает отладку на более поздних этапах
-выполнения теста.
-```
-
-```text 
-Реализацию можно описать в три шага:
-1.Создать class MyListener extends AbstractWebDriverEventListener
-2.Создать Constructor super class
-3.Переопределить нужные методы (аннотация @Override)
-```
 
 
 
