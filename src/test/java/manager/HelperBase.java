@@ -50,4 +50,8 @@ public class HelperBase {
             return false;
         }
     }
+    public boolean isElementPresent(By locator) {
+        return wd.findElements(locator).size() > 0;
+    }
+
 }
