@@ -1,3 +1,0 @@
-20:16:48.440 [Test worker] ERROR tests.BaseTest - userDtoLombok initialization finished
-20:17:47.555 [Test worker] WARN  tests.BaseTest - userDtoLombok initialization finished again with warn
-20:22:09.934 [Test worker] WARN  tests.BaseTest - userDtoLombok initialization finished

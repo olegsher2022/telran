@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="BinarySearchTestSuite" verbose="1">
   <test name="Lesson 11 Binary Search Test Case">
-    <packages>
-      <package name="lesson_11.Lesson11Test" />
-    </packages>
+    <classes>
+      <class name="tests.LoginTests" />
+    </classes>
   </test>
 </suite>
 

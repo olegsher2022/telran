@@ -5,6 +5,11 @@ import dto.UserDTO;
 import dto.UserDTOWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.regex.Pattern;
 
 public class UserHelper extends BaseHelper {
 
@@ -99,7 +104,10 @@ public class UserHelper extends BaseHelper {
     public void clickOkPopUpSuccessLogin() {
 //        clickBase(btnOkPopUp);
 //        clickBase(textPopUpSuccessRegH1);
-        jsClickBase(btnOkPopUpStr);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
+        wait.until(ExpectedConditions.textMatches(textSuccessLoginPopUp, Pattern.compile("[\\w]*")));
+         jsClickBase(btnOkPopUpStr);
+
     }
 
         public boolean validateMessageIncorrectEmailReg() {

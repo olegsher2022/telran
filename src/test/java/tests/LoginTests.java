@@ -3,11 +3,14 @@ package tests;
 import dto.UserDTO;
 import dto.UserDtoLombok;
 import dto.UserDTOWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 
 public class LoginTests extends BaseTest {
+    Logger logger = LoggerFactory.getLogger(LoginTests.class);
 
 //    @BeforeTest
     @BeforeMethod
@@ -30,7 +33,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "positiveLoginUserDTOWith")
     public void positiveLoginUserDTOWith() {
         UserDTOWith userDTOWith = new UserDTOWith()
                 .withEmail("testqa20@gmail.com")
@@ -84,7 +87,9 @@ public class LoginTests extends BaseTest {
                 .build();
         logger.warn("userDtoLombok initialization finished");
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
-        Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
+        Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect(), "Fail");
+        logger.info("Pass");
+
     }
 
     @Test(priority = 1)

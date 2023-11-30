@@ -21,6 +21,175 @@ git pull upstream main
 git push origin main
 ```
 
+
+### [Lesson 15: Listeners TestNg and WDListener continue coding]()
+
+#### Типы Listener в Selenium:
+* ● WebDriver Listeners
+* ● TestNG Listeners
+
+```text
+Практическое использование Listeners в Selenium Automation Testing может
+заключаться в регистрации порядка действий и создании снимка экрана при
+возникновении исключения. Это облегчает отладку на более поздних этапах
+выполнения теста.
+```
+
+
+* Add testNG listener procedure
+
+[All about TestNG Listeners in Selenium](https://www.browserstack.com/guide/testng-listeners)
+1. create class  [TestNGListener.java](src%2Ftest%2Fjava%2Fmanager%2FTestNGListener.java) in manager
+2. add ```public class TestNGListener implements ITestListener```
+3. add ```Logger logger = LoggerFactory.getLogger(TestNGListener.class);```
+4. override all methods
+
+
+```text 
+Реализацию можно описать в три шага:
+1.Создать class MyListener extends AbstractWebDriverEventListener
+2.Создать Constructor super class
+3.Переопределить нужные методы (аннотация @Override)
+```
+[WDListener.java](src%2Ftest%2Fjava%2Fmanager%2FWDListener.java)
+2. create  ```public class WDListener extends AbstractWebDriverEventListener {```
+3. add ```Logger logger = LoggerFactory.getLogger(TestNGListener.class);```
+4. create empty constructor ```public WDListener() {super(); }```
+4. override all methods
+5. changes in [ApplicationManager.java](src%2Ftest%2Fjava%2Fmanager%2FApplicationManager.java)
+   6. ```EventFiringWebDriver driver;```
+   7. ```driver = new EventFiringWebDriver(new ChromeDriver());```
+   8. ``` driver.register(new WDListener()); ```
+
+
+
+* Screenshots
+  1. create folder screenshots in test
+  2. add code 
+     ```java 
+        @Override
+        public void onException(Throwable throwable, WebDriver driver) {
+            super.onException(throwable, driver);
+        logger.error("start on exception in wdlistener driver");
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String fileName = "src/test/screenshots/screenshot-" + timeStamp + ".png";
+        logger.info("created screenshot " + fileName);
+        takeScreenshot((TakesScreenshot) driver, fileName);
+        }
+     ```
+     
+     ```java
+
+
+      private void takeScreenshot(TakesScreenshot takesScreenshot, String fileName){
+          try{
+                  File tmp = takesScreenshot.getScreenshotAs(OutputType.FILE);
+                  File screenshot = new File(fileName);
+                  Files.copy(tmp,screenshot);
+          } catch (IOException e){
+              e.printStackTrace();
+              logger.error(e.getMessage());
+          }
+      }```
+
+
+Run tests from console(Linux)
+1. check [build.gradle](build.gradle) for 
+```text
+task reg(type: Test){
+    useTestNG {
+    def suite = System.getProperty('suite', '')
+        if (suite.equals('quick')) {
+            suites 'src/test/resources/quick.xml'
+        } else if (suite.equals('smoke')) {
+            suites 'src/test/resources/smoke.xml'
+        } else {
+            suites 'src/test/resources/testng.xml'
+        }
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
+        }
+    }
+}
+```
+
+2. have testng.xml in src/test/resources/ [testng.xml](src%2Ftest%2Fresources%2Ftestng.xml)
+```text
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ilCarro">
+    <test name="LoginTests">
+        <classes>
+            <class name="tests.LoginTests"/>
+        </classes>
+    </test>
+    <test name="RegistrationTests">
+        <classes>
+            <class name="tests.RegistrationTests"/>
+        </classes>
+    </test>
+</suite>
+```
+
+run from console:
+```bash
+gradle reg
+```
+
+after test suite finished check for:
+```log
+olegsher@olegsher:~/workspace/telran (lesson_15)$ gradle reg
+:compileJava UP-TO-DATE
+:processResources NO-SOURCE
+:classes UP-TO-DATE
+:compileTestJavaNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+:processTestResources UP-TO-DATE
+:testClasses
+:reg
+
+ilCarro > LoginTests > tests.LoginTests.positiveLogin1 FAILED
+    org.openqa.selenium.ElementNotInteractableException at LoginTests.java:55
+
+tests.LoginTests.postconditionsLogin FAILED
+    org.openqa.selenium.JavascriptException at LoginTests.java:22
+
+ilCarro > RegistrationTests > tests.RegistrationTests.negativeRegistrationWrongEmail FAILED
+    org.openqa.selenium.interactions.MoveTargetOutOfBoundsException at RegistrationTests.java:54
+
+ilCarro > RegistrationTests > tests.RegistrationTests.negativeRegistrationWrongPassword FAILED
+    org.openqa.selenium.interactions.MoveTargetOutOfBoundsException at RegistrationTests.java:74
+
+ilCarro > RegistrationTests > tests.RegistrationTests.positiveRegistration FAILED
+    org.openqa.selenium.interactions.MoveTargetOutOfBoundsException at RegistrationTests.java:34
+
+12 tests completed, 5 failed, 5 skipped
+:reg FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':reg'.
+> There were failing tests. See the report at: file:///home/olegsher/workspace/telran/build/reports/tests/reg/index.html
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 28s
+4 actionable tasks: 2 executed, 2 up-to-date
+```
+and run:
+```bash
+firefox file:///home/olegsher/workspace/telran/build/reports/tests/reg/index.html
+```
+
+
+
+
+
+
 ### [Lesson 14: continue coding]()
 
 
