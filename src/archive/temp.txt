@@ -1,0 +1,19 @@
+from userhelper
+    Properties properties = new Properties();
+     public String getConfigXPath(String xkey) {
+         try (FileInputStream input = new FileInputStream("config.properties")) {
+             properties.load(input);
+             Enumeration<?> propertyNames = properties.propertyNames();
+             while (propertyNames.hasMoreElements()) {
+                 String key = (String) propertyNames.nextElement();
+                 String value = properties.getProperty(key);
+                 System.out.println(key + ": " + value);
+                 if (Objects.equals(key, xkey)) {
+                     return value;
+                 }
+             }
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+         return "No element";
+     }

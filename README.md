@@ -21,6 +21,123 @@ git pull upstream main
 git push origin main
 ```
 
+
+### [Lesson 15: Listeners TestNg and WDListener continue coding]()
+
+
+Run tests from console(Linux)
+1. check [build.gradle](build.gradle) for 
+```text
+task reg(type: Test){
+    useTestNG {
+    def suite = System.getProperty('suite', '')
+        if (suite.equals('quick')) {
+            suites 'src/test/resources/quick.xml'
+        } else if (suite.equals('smoke')) {
+            suites 'src/test/resources/smoke.xml'
+        } else {
+            suites 'src/test/resources/testng.xml'
+        }
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
+        }
+    }
+}
+```
+
+2. have testng.xml in src/test/resources/ [testng.xml](src%2Ftest%2Fresources%2Ftestng.xml)
+```text
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ilCarro">
+    <test name="LoginTests">
+        <classes>
+            <class name="tests.LoginTests"/>
+        </classes>
+    </test>
+    <test name="RegistrationTests">
+        <classes>
+            <class name="tests.RegistrationTests"/>
+        </classes>
+    </test>
+</suite>
+```
+
+run from console:
+```bash
+gradle reg
+```
+
+after test suite finished check for:
+```log
+olegsher@olegsher:~/workspace/telran (lesson_15)$ gradle reg
+:compileJava UP-TO-DATE
+:processResources NO-SOURCE
+:classes UP-TO-DATE
+:compileTestJavaNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+:processTestResources UP-TO-DATE
+:testClasses
+:reg
+
+ilCarro > LoginTests > tests.LoginTests.positiveLogin1 FAILED
+    org.openqa.selenium.ElementNotInteractableException at LoginTests.java:55
+
+tests.LoginTests.postconditionsLogin FAILED
+    org.openqa.selenium.JavascriptException at LoginTests.java:22
+
+ilCarro > RegistrationTests > tests.RegistrationTests.negativeRegistrationWrongEmail FAILED
+    org.openqa.selenium.interactions.MoveTargetOutOfBoundsException at RegistrationTests.java:54
+
+ilCarro > RegistrationTests > tests.RegistrationTests.negativeRegistrationWrongPassword FAILED
+    org.openqa.selenium.interactions.MoveTargetOutOfBoundsException at RegistrationTests.java:74
+
+ilCarro > RegistrationTests > tests.RegistrationTests.positiveRegistration FAILED
+    org.openqa.selenium.interactions.MoveTargetOutOfBoundsException at RegistrationTests.java:34
+
+12 tests completed, 5 failed, 5 skipped
+:reg FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':reg'.
+> There were failing tests. See the report at: file:///home/olegsher/workspace/telran/build/reports/tests/reg/index.html
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 28s
+4 actionable tasks: 2 executed, 2 up-to-date
+```
+and run:
+```bash
+firefox file:///home/olegsher/workspace/telran/build/reports/tests/reg/index.html
+```
+
+
+#### Типы Listener в Selenium:
+* ● WebDriver Listeners
+* ● TestNG Listeners
+
+```text
+Практическое использование Listeners в Selenium Automation Testing может
+заключаться в регистрации порядка действий и создании снимка экрана при
+возникновении исключения. Это облегчает отладку на более поздних этапах
+выполнения теста.
+```
+
+```text 
+Реализацию можно описать в три шага:
+1.Создать class MyListener extends AbstractWebDriverEventListener
+2.Создать Constructor super class
+3.Переопределить нужные методы (аннотация @Override)
+```
+
+
+
 ### [Lesson 14: continue coding]()
 
 

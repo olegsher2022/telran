@@ -1,4 +1,5 @@
 <configuration>
+  <timestamp key="bySecond" datePattern="yyyMMdd"/>
 
   <!-- Console Appender (STDOUT) for INFO level -->
   <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -9,7 +10,7 @@
 
   <!-- File Appender for DEBUG level -->
   <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>logs/myapp.log</file> <!-- Specify the path and name of the log file -->
+    <file>logs/myapp-${bySecond}.log</file> <!-- Specify the path and name of the log file -->
     <encoder>
       <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
     </encoder>

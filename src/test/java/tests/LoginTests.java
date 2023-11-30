@@ -30,7 +30,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "positiveLoginUserDTOWith")
     public void positiveLoginUserDTOWith() {
         UserDTOWith userDTOWith = new UserDTOWith()
                 .withEmail("testqa20@gmail.com")
@@ -84,7 +84,9 @@ public class LoginTests extends BaseTest {
                 .build();
         logger.warn("userDtoLombok initialization finished");
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
-        Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
+        Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect(), "Fail");
+        logger.info("Pass");
+
     }
 
     @Test(priority = 1)
