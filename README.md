@@ -22,6 +22,16 @@ git push origin main
 ```
 
 
+### [Lesson 16: Runner and continue coding]()
+
+1. refactoring deprecated EventFiringWebDriver with EventFiringDecorator
+2. refactoring [WDListener.java](src%2Ftest%2Fjava%2Fmanager%2FWDListener.java) using ```implements WebDriverListener```
+3. add additional browsers (chrome, firefox, safary etc)
+4. add run per environment (production, staging, dev)
+5. add run per test groups (smoke, regression, sanity)
+6. read data from file
+
+
 ### [Lesson 15: Listeners TestNg and WDListener continue coding]()
 
 #### Типы Listener в Selenium:
