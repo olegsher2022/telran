@@ -60,7 +60,7 @@ public class RegistrationTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validateMessageIncorrectEmailReg());
     }
 
-    @Test
+    @Test(groups = {"smoke", "regression"})
     public void negativeRegistrationWrongPassword() {
         String email = randomUtils.generateEmail(7);
 

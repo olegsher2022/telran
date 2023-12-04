@@ -1,17 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ilCarro">
-    <listeners>
-        <listener class-name="tests.RegistrationTests"></listener>
-        <listener class-name="tests.LoginTests"></listener>
-    </listeners>
-    <test name="LoginTests">
+<suite name="Production">
+    <test name="smoke">
         <classes>
             <class name="tests.LoginTests"/>
-        </classes>
-    </test>
-    <test name="RegistrationTests">
-        <classes>
             <class name="tests.RegistrationTests"/>
         </classes>
     </test>
+<!--    <test name="regression">-->
+<!--        <classes>-->
+<!--            <class name="tests.RegistrationTests"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
