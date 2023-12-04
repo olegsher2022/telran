@@ -20,10 +20,9 @@ import java.util.List;
 import java.util.Set;
 
 public class WDListener implements WebDriverListener {
-    Logger logger = LoggerFactory.getLogger(WDListener.class);
 
-    public WDListener() {
-        super();
+    Logger logger = LoggerFactory.getLogger(WDListener.class);
+    public WDListener() { super();
     }
 
     @Override
@@ -59,10 +58,6 @@ public class WDListener implements WebDriverListener {
     @Override
     public void afterGet(WebDriver driver, String url) {
         WebDriverListener.super.afterGet(driver, url);
-//        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-//        String fileName = "src/test/screenshots/screenshot-" + timestamp + ".png";
-//        logger.info("Create screenshot: " + fileName);
-
         takeScreenshot((TakesScreenshot) driver);
     }
 
@@ -88,13 +83,15 @@ public class WDListener implements WebDriverListener {
 
     @Override
     public void beforeFindElement(WebDriver driver, By locator) {
-        logger.info("WDListener event beforeFindBy getCurrentUrl: " + driver.getCurrentUrl());
         WebDriverListener.super.beforeFindElement(driver, locator);
+
     }
 
     @Override
     public void afterFindElement(WebDriver driver, By locator, WebElement result) {
         WebDriverListener.super.afterFindElement(driver, locator, result);
+        logger.info("WDListener: afterFindElement - " + locator + result);
+        takeScreenshot((TakesScreenshot) driver);
     }
 
     @Override
@@ -105,11 +102,6 @@ public class WDListener implements WebDriverListener {
     @Override
     public void afterFindElements(WebDriver driver, By locator, List<WebElement> result) {
         WebDriverListener.super.afterFindElements(driver, locator, result);
-//        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-//        String fileName = "src/test/screenshots/screenshot-" + timestamp + ".png";
-//        logger.info("Create screenshot: " + fileName);
-
-        takeScreenshot((TakesScreenshot) driver);
     }
 
     @Override
@@ -575,7 +567,6 @@ public class WDListener implements WebDriverListener {
     @Override
     public void beforePageLoadTimeout(WebDriver.Timeouts timeouts, Duration duration) {
         WebDriverListener.super.beforePageLoadTimeout(timeouts, duration);
-
     }
 
     @Override
@@ -646,16 +637,12 @@ public class WDListener implements WebDriverListener {
     @Override
     public void beforeFullscreen(WebDriver.Window window) {
         WebDriverListener.super.beforeFullscreen(window);
-
     }
 
     @Override
     public void afterFullscreen(WebDriver.Window window) {
         WebDriverListener.super.afterFullscreen(window);
-
-
     }
-
 
     private void takeScreenshot(TakesScreenshot takesScreenshot) {
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
@@ -667,8 +654,9 @@ public class WDListener implements WebDriverListener {
             Files.copy(tmp,screenshot);
 
         } catch (IOException e){
+            logger.error("Screenshot fail:" + e.getMessage());
             e.printStackTrace();
-            logger.error(e.getMessage());
+
         }
     }
 }

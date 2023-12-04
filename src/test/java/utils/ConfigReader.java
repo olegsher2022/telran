@@ -18,8 +18,6 @@ public class ConfigReader {
         return properties.getProperty(param);
     }
     private static void initProperty(){
-//        String target = System.getProperty("target", "prod");
-//        String path = String.format("src/test/resources/config.properties", target);
         try(FileReader fileReader = new FileReader("src/test/resources/config.properties")) {
             properties.load(fileReader);
         } catch (IOException e){
@@ -27,22 +25,7 @@ public class ConfigReader {
         }
     }
 
-//        try (FileInputStream input = new FileInputStream("config.properties")) {
-//            // Load the properties file
-//            properties.load(input);
-//
-//            Enumeration<?> propertyNames = properties.propertyNames();
-//            while (propertyNames.hasMoreElements()) {
-//                String key = (String) propertyNames.nextElement();
-//                String value = properties.getProperty(key);
-//                System.out.println(key + ": " + value);
-//            }
-//
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+
 
 
 }

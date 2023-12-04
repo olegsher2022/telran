@@ -16,12 +16,8 @@ import java.util.regex.Pattern;
 
 public class UserHelper extends BaseHelper {
 
-//    String xxx = ConfigReader.getProperty("btnLoginNavigatorMenu");
-//    By btnLoginNavigatorMenu = By.xpath(btnLoginNavigatorMenuXPath);
-//    String btnLoginNavigatorMenuXPath = ConfigReader.getProperty(btnLoginNavigatorMenuXPath);
-//    By btnLoginNavigatorMenu = By.xpath("{xxx}");
-
-    By btnLoginNavigatorMenu = By.xpath("//a[contains(@href, '/login')]");
+    By btnLoginNavigatorMenu = By.xpath(ConfigReader.getProperty("btnLoginNavigatorMenu"));
+//    By btnLoginNavigatorMenu = By.xpath("//a[contains(@href, '/login')]");
     By inputEmailLoginForm = By.xpath("//input[@id='email']");
     By inputPasswordLoginForm = By.xpath("//input[@id='password']");
     By btnYallaLoginForm = By.xpath("//button[@type='submit']");

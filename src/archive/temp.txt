@@ -17,3 +17,19 @@ from userhelper
          }
          return "No element";
      }
+
+
+     private void takeScreenshot(TakesScreenshot takesScreenshot) {
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String fileName = "src/test/screenshots/screenshot-" + timestamp + ".png";
+        logger.info("Create screenshot: " + fileName);
+        try {
+            File tmp = takesScreenshot.getScreenshotAs(OutputType.FILE);
+            File screenshot = new File(fileName);
+            Files.copy(tmp,screenshot);
+
+        } catch (IOException e){
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+    }
