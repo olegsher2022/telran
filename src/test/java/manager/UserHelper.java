@@ -7,11 +7,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import utils.ConfigReader;
 
 import java.time.Duration;
 import java.util.regex.Pattern;
 
 public class UserHelper extends BaseHelper {
+
+//    String xxx = ConfigReader.getProperty("btnLoginNavigatorMenu");
+//    By btnLoginNavigatorMenu = By.xpath(btnLoginNavigatorMenuXPath);
+//    String btnLoginNavigatorMenuXPath = ConfigReader.getProperty(btnLoginNavigatorMenuXPath);
+//    By btnLoginNavigatorMenu = By.xpath("{xxx}");
 
     By btnLoginNavigatorMenu = By.xpath("//a[contains(@href, '/login')]");
     By inputEmailLoginForm = By.xpath("//input[@id='email']");

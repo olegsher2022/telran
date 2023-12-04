@@ -21,7 +21,8 @@ public class BaseTest {
     boolean flagLogin = false, flagPopUp = false;
 
 
-    UserDtoLombok userDtoLombok = UserDtoLombok   .builder()
+    UserDtoLombok userDtoLombok = UserDtoLombok
+            .builder()
             .email("testqa20@gmail.com")
             .password("123456Aa$")
             .build();
