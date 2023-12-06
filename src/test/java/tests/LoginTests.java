@@ -15,6 +15,9 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.TmsLink;
 import utils.ConfigProperties;
+import utils.ConfigReaderCSV;
+
+import java.util.Iterator;
 
 
 public class LoginTests extends BaseTest {
@@ -33,9 +36,19 @@ public class LoginTests extends BaseTest {
         app.getUserHelper().clickOkPopUpSuccessLogin();
     }
 
-    @Test(groups = {"smoke", "regression"})
-    public void positiveLoginUserDTO() {
-        UserDTO userDTO = new UserDTO(ConfigProperties.getProperty("email"), ConfigProperties.getProperty("password"));
+
+    @DataProvider(name = "loginData")
+    public Object[][] loginData() {
+        return new Object[][]{
+                {"testqa20@gmail.com","123456Aa$"},
+                {"testqa201@gmail.com", "123456Aa$"},
+                {"testqa202@gmail.com","123456Aa$"}
+        };
+    }
+
+    @Test(groups = {"smoke", "regression"}, dataProvider = "loginData")
+    public void positiveLoginUserDTO(String user, String password) {
+        UserDTO userDTO = new UserDTO(user, password);
         BaseTest.app.getUserHelper().login(userDTO);
         Assert.assertTrue(BaseTest.app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
 

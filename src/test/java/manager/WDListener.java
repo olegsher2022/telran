@@ -91,7 +91,7 @@ public class WDListener implements WebDriverListener {
     public void afterFindElement(WebDriver driver, By locator, WebElement result) {
         WebDriverListener.super.afterFindElement(driver, locator, result);
         logger.info("WDListener: afterFindElement - " + locator + result);
-        takeScreenshot((TakesScreenshot) driver);
+//        takeScreenshot((TakesScreenshot) driver);
     }
 
     @Override
