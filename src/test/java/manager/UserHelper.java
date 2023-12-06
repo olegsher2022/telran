@@ -7,8 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import utils.ConfigReader;
 
 import java.time.Duration;
@@ -17,29 +15,24 @@ import java.util.regex.Pattern;
 public class UserHelper extends BaseHelper {
 
     By btnLoginNavigatorMenu = By.xpath(ConfigReader.getProperty("btnLoginNavigatorMenu"));
-//    By btnLoginNavigatorMenu = By.xpath("//a[contains(@href, '/login')]");
-    By inputEmailLoginForm = By.xpath("//input[@id='email']");
-    By inputPasswordLoginForm = By.xpath("//input[@id='password']");
-    By btnYallaLoginForm = By.xpath("//button[@type='submit']");
-    By textSuccessLoginPopUp = By.xpath("//h2[@class='message']");
-    By btnOpenRegForm = By.xpath("//a[contains(@href, '/registration')]");
-    By inputNameReg = By.xpath("//input[@id='name']");
-    By inputLastNameReg = By.xpath("//input[@id='lastName']");
-    By inputEmailReg = By.xpath("//input[@id='email']");
-    By inputPasswordReg = By.xpath("//input[@id='password']");
-    String btnRegNewUser = "document.querySelector('#terms-of-use').click();";
-    //    By checkBoxReg = By.xpath("//label[@for='name']");
-    String btnOkPopUpStr = "document.querySelector(`[type='button']`).click();";
-    By btnOkPopUp = By.xpath("//button[@type='button']");
-
-    By checkBoxReg = By.xpath("//label[@for='terms-of-use']");
-    By btnUallaReg = By.xpath("//button[@type='submit']");
-    By textPopUpSuccessRegH1 = By.xpath("//div[@class='dialog-container']//h1[@class='title']");
-
-    By btnLogout = By.xpath("//a[contains(@href, 'logout')]");
-
-    By errorMessageWrongEmailReg = By.xpath("//input[@autocomplete='email']/..//div//div");
-    By errorMessageIncorrectPasswordReg = By.xpath("//input[@autocomplete='new-password']/..//div//div");
+    By inputEmailLoginForm = By.xpath(ConfigReader.getProperty("inputEmailLoginForm"));
+    By inputPasswordLoginForm = By.xpath(ConfigReader.getProperty("inputPasswordLoginForm"));
+    By btnYallaLoginForm = By.xpath(ConfigReader.getProperty("btnYallaLoginForm"));
+    By textSuccessLoginPopUp = By.xpath(ConfigReader.getProperty("textSuccessLoginPopUp"));
+    By btnOpenRegForm = By.xpath(ConfigReader.getProperty("btnOpenRegForm"));
+    By inputNameReg = By.xpath(ConfigReader.getProperty("inputNameReg"));
+    By inputLastNameReg = By.xpath(ConfigReader.getProperty("inputLastNameReg"));
+    By inputEmailReg = By.xpath(ConfigReader.getProperty("inputEmailReg"));
+    By inputPasswordReg = By.xpath(ConfigReader.getProperty("inputPasswordReg"));
+    String btnRegNewUser = ConfigReader.getProperty("btnRegNewUser");
+    String btnOkPopUpStr = ConfigReader.getProperty("btnOkPopUpStr");
+    By btnOkPopUp = By.xpath(ConfigReader.getProperty("btnOkPopUp"));
+    By checkBoxReg = By.xpath(ConfigReader.getProperty("checkBoxReg"));
+    By btnUallaReg = By.xpath(ConfigReader.getProperty("btnUallaReg"));
+    By textPopUpSuccessRegH1 = By.xpath(ConfigReader.getProperty("textPopUpSuccessRegH1"));
+    By btnLogout = By.xpath(ConfigReader.getProperty("btnLogout"));
+    By errorMessageWrongEmailReg = By.xpath(ConfigReader.getProperty("errorMessageWrongEmailReg"));
+    By errorMessageIncorrectPasswordReg = By.xpath(ConfigReader.getProperty("errorMessageIncorrectPasswordReg"));
 
     public UserHelper(WebDriver driver) {
         super(driver);
@@ -60,7 +53,7 @@ public class UserHelper extends BaseHelper {
     }
 
     public boolean validatePopUpMessageSuccessAfterLogin() {
-        return isTextEqual(textSuccessLoginPopUp, "Logged in success");
+        return isTextEqual(textSuccessLoginPopUp, ConfigReader.getProperty("msgLoggedInSuccess"));
     }
 
     public void loginUserDtoLombok(UserDtoLombok user) {
@@ -87,7 +80,7 @@ public class UserHelper extends BaseHelper {
     }
 
     public boolean validatePopUpMessageLoginIncorrect() {
-        return isTextEqual(textSuccessLoginPopUp, "\"Login or Password incorrect\"");
+        return isTextEqual(textSuccessLoginPopUp, ConfigReader.getProperty("msgWrongLogin"));
     }
 
 

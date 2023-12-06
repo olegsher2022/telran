@@ -23,7 +23,6 @@ import java.time.Duration;
 
 public class ApplicationManager {
     Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
-//    EventFiringWebDriver driver; // 1. change for get listener
     WebDriver driver;
     UserHelper userHelper;
     static String browser;
@@ -35,54 +34,25 @@ public class ApplicationManager {
         logger.info(browser);
     }
     public void init() {
-//        browser = System.getProperty("browser");
-//        browser = "firefox";
-        logger.warn(browser);
-        logger.warn(Browser.CHROME.browserName());
-        logger.warn(Browser.FIREFOX.browserName());
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless=new");
-//        WebDriver original = new ChromeDriver(options);
-//        WebDriverListener listener = new WDListener();
-//        driver = new EventFiringDecorator(listener).decorate(original);
         if (browser.equals(Browser.CHROME.browserName())){
             ChromeOptions options = new ChromeOptions();
-//            options.addArguments("--headless=new");
-
+            options.addArguments("--headless=new");
             WebDriver original = new ChromeDriver(options);
             WebDriverListener listener = new WDListener();
             driver = new EventFiringDecorator(listener).decorate(original);
             logger.warn(browser);
         } else if (browser.equals(Browser.FIREFOX.browserName())){
-             FirefoxOptions options = new FirefoxOptions();
-//            options.setBinary(getFirefoxLocation());
-//            options.addArguments("-headless");
-//            FirefoxProfile profile = new FirefoxProfile();
-            FirefoxBinary binary = new FirefoxBinary(new File("/opt/firefox/firefox"));
-            FirefoxProfile profile = new FirefoxProfile();
-            options.setProfile(profile);
-            driver = new FirefoxDriver(options) ;
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--headless");
+            WebDriver original = new FirefoxDriver(options);
+            WebDriverListener listener = new WDListener();
+            driver = new EventFiringDecorator(listener).decorate(original);
             logger.warn(browser);
         }
-//           driver.get("http://example.com/");
-//           WebElement header = decorated.findElement(By.tagName("h1"));
-//           String headerText = header.getText();
 
-
-
-//        driver = new EventFiringWebDriver(new ChromeDriver()); // 2. change for get listener
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless=new");
-//        driver = new EventFiringWebDriver(new ChromeDriver(options)); // 2. change for get listener
-
-
-//        driver.navigate().to("https://ilcarro.web.app/search");
         driver.navigate().to(ConfigProperties.getProperty("url"));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong((ConfigProperties.getProperty("implicitlyWait")))));
-//        driver.register(new WDListener()); // 3.  change for get listener
-
-
         userHelper = new UserHelper(driver);
         logger.info("navigated to the https://ilcarro.web.app/search");
     }

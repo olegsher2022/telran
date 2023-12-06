@@ -3,8 +3,7 @@ package tests;
 import dto.UserDTO;
 import dto.UserDtoLombok;
 import dto.UserDTOWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.testng.Assert;
 import org.testng.annotations.*;
 import static io.qameta.allure.SeverityLevel.*;
@@ -14,23 +13,16 @@ import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.TmsLink;
-import utils.ConfigProperties;
-import utils.ConfigReaderCSV;
-
-import java.util.Iterator;
 
 
 public class LoginTests extends BaseTest {
-    Logger logger = LoggerFactory.getLogger(LoginTests.class);
 
-//    @BeforeTest
     @BeforeMethod(alwaysRun = true)
     public void preconditionsLogin() {
         logoutIflogin();
     }
 
 
-//    @AfterTest
     @AfterMethod(alwaysRun = true)
     public void postconditionsLogin() {
         app.getUserHelper().clickOkPopUpSuccessLogin();
@@ -129,6 +121,13 @@ public class LoginTests extends BaseTest {
         app.getUserHelper().loginUserDtoLombok(userDtoLombok);
 
          Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
+    }
+
+    @Test(priority = 1, groups = {"smoke", "regression"}, dataProvider = "loginData")
+    public void wrongLoginWithDataProvider(String user, String password) {
+        UserDTO userDTO = new UserDTO(user, password);
+        BaseTest.app.getUserHelper().login(userDTO);
+        Assert.assertTrue(app.getUserHelper().validatePopUpMessageLoginIncorrect());
     }
 
 
