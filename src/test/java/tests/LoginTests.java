@@ -7,33 +7,47 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import static io.qameta.allure.SeverityLevel.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.TmsLink;
+import utils.ConfigProperties;
 
 
 public class LoginTests extends BaseTest {
     Logger logger = LoggerFactory.getLogger(LoginTests.class);
 
 //    @BeforeTest
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preconditionsLogin() {
         logoutIflogin();
     }
 
 
 //    @AfterTest
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void postconditionsLogin() {
         app.getUserHelper().clickOkPopUpSuccessLogin();
     }
 
-    @Test
+    @Test(groups = {"smoke", "regression"})
     public void positiveLoginUserDTO() {
-        UserDTO userDTO = new UserDTO("testqa20@gmail.com", "123456Aa$");
+        UserDTO userDTO = new UserDTO(ConfigProperties.getProperty("email"), ConfigProperties.getProperty("password"));
         BaseTest.app.getUserHelper().login(userDTO);
         Assert.assertTrue(BaseTest.app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
 
     }
 
-    @Test(description = "positiveLoginUserDTOWith")
+    @Test(description = "positiveLoginUserDTOWith", groups = {"smoke", "regression"})
+    @Description("This test attempts to log into the website using a login and a password. Fails if any error happens.\n\nNote that this test does not test 2-Factor Authentication.")
+    @Severity(CRITICAL)
+    @Owner("John Doe")
+    @Link(name = "Website", url = "https://dev.example.com/")
+    @Issue("AUTH-123")
+    @TmsLink("TMS-456")
     public void positiveLoginUserDTOWith() {
         UserDTOWith userDTOWith = new UserDTOWith()
                 .withEmail("testqa20@gmail.com")
@@ -53,7 +67,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterLogin());
     }
 
-   @Test
+   @Test(groups = {"smoke", "regression"})
    public void positiveLogin1() {
        app.getUserHelper().loginUserDtoLombok(userDtoLombok);
         try {

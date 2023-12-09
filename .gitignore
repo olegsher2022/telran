@@ -48,3 +48,6 @@ allure-results
 /logs/
 /logs/
 /src/test/screenshots/
+/allure-report/
+/target/
+/allure-report/
