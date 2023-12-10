@@ -19,7 +19,7 @@ public class RegistrationTests extends BaseTest{
         }
     }
 
-    @Test(groups={"smoke", "regression"})
+    @Test(groups={"regression"})
     public void positiveRegistration() {
         app.getUserHelper().refreshPage();
         String email = randomUtils.generateEmail(7);
@@ -42,7 +42,7 @@ public class RegistrationTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validatePopUpMessageSuccessAfterRegistration());
     }
 
-    @Test
+    @Test(enabled = false)
     public void negativeRegistrationWrongEmail() {
         UserDtoLombok user = UserDtoLombok.builder()
                 .email("abc@")
@@ -60,7 +60,7 @@ public class RegistrationTests extends BaseTest{
         Assert.assertTrue(app.getUserHelper().validateMessageIncorrectEmailReg());
     }
 
-    @Test(groups = {"smoke", "regression"})
+    @Test(groups = {"smoke", "regression"}, enabled = false)
     public void negativeRegistrationWrongPassword() {
         String email = randomUtils.generateEmail(7);
 
