@@ -20,7 +20,7 @@ public class UserHelper extends BaseHelper {
     By inputEmailLoginForm = By.xpath(ConfigReader.getProperty("inputEmailLoginForm"));
     By inputPasswordLoginForm = By.xpath(ConfigReader.getProperty("inputPasswordLoginForm"));
     By btnYallaLoginForm = By.xpath("//button[@type='submit']");
-    By textSuccessLoginPopUp = By.xpath("//h2[@class='message']");
+    By textSuccessLoginPopUp = By.xpath(ConfigReader.getProperty("textSuccessLoginPopUp"));
     By btnOpenRegForm = By.xpath("//a[contains(@href, '/registration')]");
     By inputNameReg = By.xpath("//input[@id='name']");
     By inputLastNameReg = By.xpath("//input[@id='lastName']");

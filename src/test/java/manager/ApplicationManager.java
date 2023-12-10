@@ -42,14 +42,14 @@ public class ApplicationManager {
         logger.warn(Browser.FIREFOX.browserName());
         if (browser.equals(Browser.CHROME.browserName())){
             ChromeOptions options = new ChromeOptions();
-//            options.addArguments("--headless=new");
+            options.addArguments("--headless=new");
             WebDriver original = new ChromeDriver(options);
             WebDriverListener listener = new WDListener();
             driver = new EventFiringDecorator(listener).decorate(original);
             logger.warn(browser);
         } else if (browser.equals(Browser.FIREFOX.browserName())){
             FirefoxOptions options = new FirefoxOptions();
-//            options.addArguments("--headless");
+            options.addArguments("--headless");
             WebDriverListener listener = new WDListener();
             WebDriver original = new FirefoxDriver(options);
             driver = new EventFiringDecorator(listener).decorate(original);
