@@ -4,6 +4,7 @@
         <classes>
             <class name="tests.LoginTests"/>
             <class name="tests.RegistrationTests"/>
+            <class name="tests.CarTests"/>
         </classes>
     </test>
 <!--    <test name="regression">-->

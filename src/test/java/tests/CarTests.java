@@ -26,7 +26,7 @@ public class CarTests extends BaseTest{
                 .seats(2)
                 .carClass("jsdfh")
                 .pricePerDay(20)
-                .city("Jerusalem")
+                .city("Tel Aviv, Israel")
                 .build();
         // Tel Aviv, Israel
         app.getCarHelper().clickAddNewCar();
