@@ -49,7 +49,7 @@ public class ApplicationManager {
             logger.warn(browser);
         } else if (browser.equals(Browser.FIREFOX.browserName())){
             FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("--headless");
+//            options.addArguments("--headless");
             WebDriverListener listener = new WDListener();
             WebDriver original = new FirefoxDriver(options);
             driver = new EventFiringDecorator(listener).decorate(original);
