@@ -88,10 +88,16 @@ public class CarHelper extends BaseHelper{
     }
 
     private void selectFirstOptionFromGooglePlacesDropdown() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement autoCompleteResult = wait.until(ExpectedConditions.visibilityOfElementLocated(containerCities));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//        WebElement autoCompleteResult = wait.until(ExpectedConditions.visibilityOfElementLocated(containerCities));
         Actions builder = new Actions(driver);
-        builder.moveToElement(autoCompleteResult).perform();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+//        builder.moveToElement(autoCompleteResult).perform();
         builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
     }
 }

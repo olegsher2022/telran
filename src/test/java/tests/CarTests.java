@@ -6,6 +6,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class CarTests extends BaseTest{
     @BeforeClass
     public void loginPreConditions() {
@@ -16,9 +18,11 @@ public class CarTests extends BaseTest{
 
     @Test
     public void addNewCarTest() {
-//        String serNumber = randomUtils.generateStringDigits(12);
+
+        Random random = new Random();
+        String serNumber = String.valueOf(Math.round(random.nextFloat() * Math.pow(10,12)));
         AddCarDTO car = AddCarDTO.builder()
-                .serialNumber("123456789012")
+                .serialNumber(serNumber)
                 .manufacture("opelqa20")
                 .model("corsa")
                 .year(1999)
@@ -26,7 +30,7 @@ public class CarTests extends BaseTest{
                 .seats(2)
                 .carClass("jsdfh")
                 .pricePerDay(20)
-                .city("Tel Aviv, Israel")
+                .city("Tel Aviv")
                 .build();
         // Tel Aviv, Israel
         app.getCarHelper().clickAddNewCar();
