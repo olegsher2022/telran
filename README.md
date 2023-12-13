@@ -24,6 +24,10 @@ git push origin main
 
 ### [Lesson 19: Jenkins + coding]()
 
+<br/>Jenkins - reports and multiple projects
+<br/>DataProvider
+<br/>DataProvider from csv file
+
 
 ### [Lesson 18: Jenkins]()
 [Jenkins.pptx](Jenkins.pptx)<br/>
