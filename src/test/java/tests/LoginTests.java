@@ -42,12 +42,6 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(description = "positiveLoginUserDTOWith", groups = {"smoke", "regression"})
-    @Description("This test attempts to log into the website using a login and a password. Fails if any error happens.\n\nNote that this test does not test 2-Factor Authentication.")
-    @Severity(CRITICAL)
-    @Owner("John Doe")
-    @Link(name = "Website", url = "https://dev.example.com/")
-    @Issue("AUTH-123")
-    @TmsLink("TMS-456")
     public void positiveLoginUserDTOWith() {
         UserDTOWith userDTOWith = new UserDTOWith()
                 .withEmail("testqa20@gmail.com")

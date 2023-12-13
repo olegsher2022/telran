@@ -22,6 +22,23 @@ git push origin main
 ```
 
 
+### [Lesson 19: Jenkins + coding]()
+
+
+### [Lesson 18: Jenkins]()
+[Jenkins.pptx](Jenkins.pptx)<br/>
+[Jenkins Triger_git_each15Min.pdf](Jenkins%20Triger_git_each15Min.pdf)
+
+Works with Java 11 only
+<br/>[java8.bat](java8.bat) - for windows only
+<br/>[java11.bat](java11.bat) - for windows only
+<br/>[java17.bat](java17.bat) - for windows only
+<br/>[java21.bat](java21.bat) - for windows only
+
+
+### [Lesson 17: continue coding]()
+
+
 ### [Lesson 16: Runner and continue coding]()
 
 1. refactoring deprecated EventFiringWebDriver with EventFiringDecorator
