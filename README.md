@@ -23,8 +23,16 @@ git push origin main
 
 
 ### [Lesson 19: Jenkins + coding]()
+
+
 ### [Lesson 18: Jenkins]()
+[Jenkins.pptx](Jenkins.pptx)<br/>
+[Jenkins Triger_git_each15Min.pdf](Jenkins%20Triger_git_each15Min.pdf)
+
+
 ### [Lesson 17: continue coding]()
+
+
 ### [Lesson 16: Runner and continue coding]()
 
 1. refactoring deprecated EventFiringWebDriver with EventFiringDecorator
