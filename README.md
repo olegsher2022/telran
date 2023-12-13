@@ -20,8 +20,8 @@ git rebase upstream main
 git pull upstream main
 git push origin main
 ```
-
-
+### [Lesson 18: Jenkins]()
+### [Lesson 17: continue coding]()
 ### [Lesson 16: Runner and continue coding]()
 
 1. refactoring deprecated EventFiringWebDriver with EventFiringDecorator
