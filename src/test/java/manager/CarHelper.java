@@ -33,7 +33,10 @@ public class CarHelper extends BaseHelper{
     By btnSubmitNewCar = By.xpath("//button[@type='submit']");
     By textPopUpTitle = By.xpath("//div[@class='dialog-container']//h1[@class='title']");
     By btnAddAnotherCarPopUp = By.xpath("//button[contains(@class, 'negative-button')]");
+    By btnCarAddingFailedPopUp = By.xpath("//button[contains(@class, 'positive-button')]");
+    //*[@id="mat-dialog-0"]/app-error/div/div/button
     By containerCities = By.xpath("//div[contains(@class, 'pac-container pac-logo hdpi') and not(contains(@style, 'display: none'))]");
+
 //    By containerCities = By.xpath("/html/body/div[2]/div[1]/span[2]/span");
 
 //    By containerCities = By.cssSelector("body > div:nth-child(14) > div:nth-child(1) > span.pac-item-query > span");
@@ -50,6 +53,10 @@ public class CarHelper extends BaseHelper{
 
     public void clickAddNewCarPopUp() {
         clickBase(btnAddAnotherCarPopUp);
+    }
+
+    public void clickCarAddingFailedPopUp() {
+        clickBase(btnCarAddingFailedPopUp);
     }
 
     public void fillFormNewCar(AddCarDTO car) {
