@@ -42,7 +42,7 @@ public class ApplicationManager {
         logger.warn(Browser.FIREFOX.browserName());
         if (browser.equals(Browser.CHROME.browserName())){
             ChromeOptions options = new ChromeOptions();
-//            options.addArguments("--headless=new");
+            options.addArguments("--headless=new");
             WebDriver original = new ChromeDriver(options);
             WebDriverListener listener = new WDListener();
             driver = new EventFiringDecorator(listener).decorate(original);
