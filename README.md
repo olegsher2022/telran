@@ -20,9 +20,14 @@ git rebase upstream main
 git pull upstream main
 git push origin main
 ```
+### [Lesson 25: POM 8.01.2024 18:00 - 21:00]()
+### [Lesson 24: DB 4.01.2024 18:00 - 21:00]()
+### [Lesson 23: Mobile testing 28.12.2023 18:00 - 21:00]()
+### [Lesson 22: Mobile testing 25.12.2023 18:00 - 21:00]()
+### [Lesson 21: API 21.12.2023 18:00 - 21:00]()
+### [Lesson 20: API 18.12.2023 18:00 - 21:00]()
 
-
-### [Lesson 19: Jenkins + coding]()
+### [Lesson 19: Jenkins + DataProvider CSV 14.12.2023 18:00 - 21:00]()
 
 <br/>Jenkins - reports and multiple projects
 <br/>DataProvider
