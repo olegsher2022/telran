@@ -20,9 +20,33 @@ git rebase upstream main
 git pull upstream main
 git push origin main
 ```
+### [Lesson 25: 8.01.2024 18:00 - 21:00]()
+### [Lesson 24: DB 4.01.2024 18:00 - 21:00]()
+### [Lesson 23: Mobile testing 28.12.2023 18:00 - 21:00]()
+### [Lesson 22: Mobile testing 25.12.2023 18:00 - 21:00]()
+### [Lesson 21: API 21.12.2023 18:00 - 21:00]()
+### [Lesson 20: API 18.12.2023 18:00 - 21:00]()
 
+### [Lesson 19: Jenkins + DataProvider CSV 14.12.2023 18:00 - 21:00]()
+[Java jenkins Dataprovider csv cartests](https://docs.google.com/presentation/d/1APol2jSD1o9L63F6-eXYjOliLbEyijbwGIJEreGThoQ/edit?usp=sharing)
+<br/>Jenkins - reports and multiple projects
+<br/>DataProvider
+<br/>DataProvider from csv file
 
-### [Lesson 19: Jenkins + coding]()
+### Done till 15.12.2023
+* Work Environment:
+1. Virtualization - virtualBox
+2. Linux
+* Web site testing:
+1. Project structure, include helpers and multiple browsers
+2. TestNG include Listener
+3. Selenium include Listener and Locators, waiters and @DataProvider
+4. Logs by logger
+5. Screenshots from listeners
+6. Gradle
+7. Git
+8. Jenkins + multiple projects + reporting
+
 
 
 ### [Lesson 18: Jenkins]()

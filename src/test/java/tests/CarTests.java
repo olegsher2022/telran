@@ -1,26 +1,25 @@
 package tests;
 
+import data.DataProviderLogin;
 import dto.AddCarDTO;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.Random;
 
-public class CarTests extends BaseTest{
-    @BeforeClass
-    public void loginPreConditions() {
-        app.navigateToMainPage();
-        app.getUserHelper().loginUserDtoLombok(userDtoLombok);
-        app.getUserHelper().clickOkPopUpSuccessLogin();
-    }
+public class CarTests extends BaseTest {
+//    @BeforeClass
+//    public void loginPreConditions() {
+//        app.navigateToMainPage();
+//        app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+//        app.getUserHelper().clickOkPopUpSuccessLogin();
+//    }
 
     @Test
     public void addNewCarTest() {
 
         Random random = new Random();
-        String serNumber = String.valueOf(Math.round(random.nextFloat() * Math.pow(10,12)));
+        String serNumber = String.valueOf(Math.round(random.nextFloat() * Math.pow(10, 12)));
         AddCarDTO car = AddCarDTO.builder()
                 .serialNumber(serNumber)
                 .manufacture("opelqa20")
@@ -38,10 +37,43 @@ public class CarTests extends BaseTest{
         Assert.assertTrue(app.getCarHelper().validateMessagePopUp());
     }
 
-    @AfterClass
-    public void logoutAfterConditions() {
-        app.getCarHelper().clickAddNewCarPopUp();
+    @Test(dataProvider = "negativeAddCarCSV", dataProviderClass = DataProviderLogin.class)
+    public void negativePasswordWithoutSymbol(AddCarDTO car) {
+        app.getCarHelper().clickAddNewCar();
+        app.getCarHelper().fillFormNewCar(car);
+
+//        flagPopUp = true;
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        Assert.assertFalse(app.getCarHelper().validateMessagePopUp());
+    }
+
+
+    @BeforeMethod
+    public void beforeMethod() {
+        app.navigateToMainPage();
+        app.getUserHelper().loginUserDtoLombok(userDtoLombok);
+        app.getUserHelper().clickOkPopUpSuccessLogin();
+    }
+
+    @AfterMethod
+    public void clickOnPopup() {
+        app.getCarHelper().clickCarAddingFailedPopUp();
         app.getUserHelper().logout();
         app.navigateToMainPage();
+
     }
 }
+
+//    @AfterClass
+//    public void logoutAfterConditions() {
+//        app.getCarHelper().clickAddNewCarPopUp();
+////        app.getCarHelper().clickCarAddingFailedPopUp();
+//        app.getUserHelper().logout();
+//        app.navigateToMainPage();
+//    }
+//}
