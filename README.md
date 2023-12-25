@@ -22,9 +22,75 @@ git push origin main
 ```
 ### [Lesson 25: 8.01.2024 18:00 - 21:00]()
 ### [Lesson 24: DB 4.01.2024 18:00 - 21:00]()
-### [Lesson 23: Mobile testing 28.12.2023 18:00 - 21:00]()
-### [Lesson 22: Mobile testing 25.12.2023 18:00 - 21:00]()
+### [Lesson 23: POM + Mobile testing 28.12.2023 18:00 - 21:00]()
+### [Lesson 22: POM + Mobile testing 25.12.2023 18:00 - 21:00]()
+* Concept and overview:
+<br>Add device under test (by Android Studio emulator) and Java to MobileApp proxy(by Appium)
+
+Environment:
+![Add_Oreo.png](src%2FAdd_Oreo.png)
+![AndroidSDK_plugins.png](src%2FAndroidSDK_plugins.png)
+![Add_Nex6_to_DeviceManager.png](src%2FAdd_Nex6_to_DeviceManager.png)
+
+* start ```emulator @Nex6``` from command line
+* start ``` ./Appium-Server-GUI-linux-1.22.3-4.AppImage ``` or analog in Windows
+![start_Appium_server.png](src%2Fstart_Appium_server.png)
+environment done
+
+* Project Intellij
+* - to build.gradle add  ```implementation 'io.appium:java-client:7.6.0'```
+* - add AppiumConfig.java to config folder:
+```java
+package config;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class AppiumConfig {
+    public static AppiumDriver<MobileElement> driver;
+
+    @BeforeSuite
+    public void setup() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("deviceName", "Nex6");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0");
+        capabilities.setCapability("appPackage", "com.sheygam.contactapp");
+        capabilities.setCapability("appActivity", ".SplashActivity");
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
+        capabilities.setCapability(MobileCapabilityType.APP, "contacts-android.apk");
+
+        try {
+            driver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), capabilities);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @AfterSuite
+    public void tearDown() {
+        driver.quit();
+    }
+}
+
+```
+* Add POM 
+* [Page object models](https://www.selenium.dev/documentation/test_practices/encouraged/page_object_models/)
+* - Add classes per each page (extends BasePage)
+
+
 ### [Lesson 21: API 21.12.2023 18:00 - 21:00]()
+
+
+
+
 ### [Lesson 20: API 18.12.2023 18:00 - 21:00]()
 
 ### [Lesson 19: Jenkins + DataProvider CSV 14.12.2023 18:00 - 21:00]()
